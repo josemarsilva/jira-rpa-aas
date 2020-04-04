@@ -4,15 +4,31 @@ Using Jira (da Atlassian ) to implement RPA (Robot Process Automation) em um mod
 
 ## 1. Introdução
 
-Este repositório contém os componentes do projeto **jira-rpa-aas**. A solução deste projeto usa e implementa os seguintes conceitos e ferramentas:
+Este repositório contém os componentes do projeto **jira-rpa-aas**. A solução **jira-rpa-aas** usa e implementa os seguintes conceitos e ferramentas:
 * RPA - Robot Process Automation
 * Jira Software - Ferramenta de Workflow da Atlassian
 * aaS - Entrega como serviço
 
+### 1.1. Índice
+
+* [Documentação](#2-documentação)
+  * [Diagrama de Caso de Uso](#21-diagrama-de-caso-de-uso-use-case-diagram)
+  * [Diagrama de Implantação](#22-diagrama-de-implantação-deploy-diagram)
+  * [Diagrama de Estados e Transições](#23-diagrama-de-estados-e-transições-state-diagram)
+* Projeto
+  * [Pré-Requisitos](#31-pré-requisitos)
+  * [Guia para Desenvolvimento](#32-guia-para-desenvolvimento)
+  * [Guia para Configuração](#33-guia-para-configuração)
+  * [Guia para Testes](#34-guia-para-teste)
+  * [Guia para Implantação](#35-guia-para-implantação)
+  * [Guia para Demonstração](#36-guia-para-demonstração)
+  * [Guia para Execução](#37-guia-para-execução)
+
+
 ### 2. Documentação
 
 ### 2.1. Diagrama de Caso de Uso (Use Case Diagram)
-### 2.1.1. Diagrama de Conexto
+### 2.1.1. Diagrama de Contexto
 
 O diagrama de Caso de Uso com **Contexto - Jira RPA aaS** do projeto, apresenta as principais **funcionalidades** do projeto, as **entradas** e **saídas** e as **entidades** que interagem com a solução.
 
@@ -52,32 +68,34 @@ O diagrama de Estados e Transições com **Contexto - Jira RPA aaS** do projeto,
 * Crie a seguinte configuração de _Run Configurations_ no eclipse:
 
 
-### 3.3. Guia para Configuração ###
+### 3.3. Guia para Configuração
 
 * n/a
 
 
-### 3.4. Guia para Teste ###
+### 3.4. Guia para Teste
 
 * n/a
 
 
-### 3.5. Guia para Implantação ###
+### 3.5. Guia para Implantação
 
 * n/a
 
 
-### 3.6. Guia para Demonstração ###
+### 3.6. Guia para Demonstração
 
 * n/a
 
-### 3.7. Guia para Execução ###
+### 3.7. Guia para Execução
 
-* Na pasta `.\dist` encontra-se a versão de distribuição, com arquivos de configuração
+### 3.7.1. Guia do Usuário
 
-```cmd
-java -jar lean-digital-in-manager.jar -f .\\dist\\param-file.json
-```
+* n/a
+
+### 3.7.2. Guia do Administrador
+
+* n/a
 
 
 ## Referências ##
