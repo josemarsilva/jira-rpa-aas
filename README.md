@@ -72,7 +72,8 @@ O diagrama de Estados e Transições com **Contexto - Jira RPA aaS** do projeto,
 
 ### 3.3.1. Configuração do Jira
 
-* [/doc/README-Config-Jira.md]
+* [doc/README-Config-Jira.md]
+
 
 ### 3.4. Guia para Teste
 
