@@ -16,21 +16,21 @@ Este repositório contém os componentes do projeto **jira-rpa-aas**. A soluçã
 
 O diagrama de Caso de Uso com **Contexto - Jira RPA aaS** do projeto, apresenta as principais **funcionalidades** do projeto, as **entradas** e **saídas** e as **entidades** que interagem com a solução.
 
-![UseCaseDiagram-Context](doc/UseCaseDiagram%20-%20Context%20-%20Jira%20RPA%20aaS.png)
+![UseCaseDiagram-Context](doc/UseCaseDiagram%20-%20Context.png)
 
 ### 2.2. Diagrama de Implantação (Deploy Diagram)
 ### 2.2.2. Diagrama de Contexto
 
 O diagrama de Implantação com **Contexto - Jira RPA aaS** do projeto, apresenta as principais **componentes**, **nós** e **comunicações** da solução.
 
-![DeployDiagram-Context](doc/DeployDiagram%20-%20Context%20-%20Jira%20RPA%20aaS.png)
+![DeployDiagram-Context](doc/DeployDiagram%20-%20Context.png)
 
 ### 2.3. Diagrama de Estados e Transições (State Diagram)
 ### 2.2.3. Diagrama de Contexto
 
 O diagrama de Estados e Transições com **Contexto - Jira RPA aaS** do projeto, apresenta os principais **estados** e **transições** da solução.
 
-![StateDiagram-Context](doc/StateDiagram%20-%20Context%20-%20Jira%20RPA%20aaS.png)
+![StateDiagram-Context](doc/StateDiagram%20-%20Context.png)
 
 ### 2.5. Requisitos ###
 
