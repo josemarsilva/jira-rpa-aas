@@ -1,7 +1,6 @@
 ### jira-rpa-aas
 Using Jira (da Atlassian ) to implement RPA (Robot Process Automation) em um modelo aaS ( As a Service)
 
-
 ## 1. Introdução
 
 Este repositório contém os componentes do projeto **jira-rpa-aas**. A solução **jira-rpa-aas** usa e implementa os seguintes conceitos e ferramentas:
@@ -19,6 +18,7 @@ Este repositório contém os componentes do projeto **jira-rpa-aas**. A soluçã
   * [Pré-Requisitos](#31-pré-requisitos)
   * [Guia para Desenvolvimento](#32-guia-para-desenvolvimento)
   * [Guia para Configuração](#33-guia-para-configuração)
+    * [Configuração do Jira](#331-configuração-do-jira)
   * [Guia para Testes](#34-guia-para-teste)
   * [Guia para Implantação](#35-guia-para-implantação)
   * [Guia para Demonstração](#36-guia-para-demonstração)
@@ -70,8 +70,9 @@ O diagrama de Estados e Transições com **Contexto - Jira RPA aaS** do projeto,
 
 ### 3.3. Guia para Configuração
 
-* n/a
+### 3.3.1. Configuração do Jira
 
+* [Leia-me Guia de Configuração do Jira]((doc/README-Config-Jira.md)
 
 ### 3.4. Guia para Teste
 
