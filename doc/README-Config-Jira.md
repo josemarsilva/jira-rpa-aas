@@ -4,9 +4,8 @@ Guia de Configuração da ferramenta Jira para o projeto [Jira RPA aaS](../READM
 Índice
 
 * [Passo a Passo](#1-passo-a-passo)
-  * [Passo a Passo](#1-passo-a-passo)
-    * [Criar Projeto](#11-criar-projeto)
-  * [ Configurar Tipos de Ocorrências para as pendências do projeto](#12-configurar-tipos-de-ocorrências-para-as-pendências-do-projeto)
+  * [Criar Projeto](#11-criar-projeto)
+  * [Configurar Tipos de Ocorrências para as pendências do projeto](#12-configurar-tipos-de-ocorrências-para-as-pendências-do-projeto)
 # 1. Passo a Passo
 
 ## 1.1. Criar Projeto
