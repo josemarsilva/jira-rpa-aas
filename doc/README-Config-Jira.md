@@ -6,7 +6,7 @@ Guia de Configuração da ferramenta Jira para o projeto [Jira RPA aaS](../READM
 * [Passo a Passo](#1-passo-a-passo)
   * [Passo a Passo](#1-passo-a-passo)
     * [Criar Projeto](#11-criar-projeto)
-  * 
+  * [ Configurar Tipos de Ocorrências para as pendências do projeto](#12-configurar-tipos-de-ocorrências-para-as-pendências-do-projeto)
 # 1. Passo a Passo
 
 ## 1.1. Criar Projeto
@@ -56,26 +56,6 @@ Guia de Configuração da ferramenta Jira para o projeto [Jira RPA aaS](../READM
 
 ![Config-Jira-AdminPendenciaConfigurarEsquemaDeTipoDeOcorrencia-02.png](printscreen/Config-Jira-AdminPendenciaConfigurarEsquemaDeTipoDeOcorrencia-02.png)
 ![Config-Jira-AdminPendenciaConfigurarEsquemaDeTipoDeOcorrencia-03.png](printscreen/Config-Jira-AdminPendenciaConfigurarEsquemaDeTipoDeOcorrencia-03.png)
-
-
----
-
-* No menu superior principal clique no link do item de menu `Administração >> Pojetos` e em seguida clique no link do nome do projeto `RPA`
-
-![Config-Jira-AdminProjetos-01.png](printscreen/Config-Jira-AdminProjetos-01.png)
-
-* Na página de `Configurações do Projeto` no sub-menu `Resumo` observar os itens do `sub-menu de Configurações de Projeto`
-
-![Config-Jira-ConfigProjeto-01.png](printscreen/Config-Jira-ConfigProjeto-01.png)
-![Config-Jira-ConfigProjeto-01.png](printscreen/Config-Jira-ConfigProjeto-01.png)
-
-* Na página de `Configurações do Projeto` no sub-menu `Resumo` clicar no item do sub-menu `Tipos de Ocorrências`
-
-* Na página de `Configurações do Projeto` no sub-menu `Tipos de Ocorrências` clicar no botão `Ações` e em seguida no sub-item  `Use um esquema diferente`
-
-![Config-Jira-ConfigTipoOcorrencia-01.png](printscreen/Config-Jira-ConfigTipoOcorrencia-01.png)
-
-* Na página de administração de projeto `Selecione Esquema Tipo Issue para o projeto` escolha a opção ``
 
 
 ---
