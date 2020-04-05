@@ -29,17 +29,53 @@ Guia de Configuração da ferramenta Jira para o projeto [Jira RPA aaS](../READM
 
 ![Config-Jira-OcorrenciasAbertas-01.png](printscreen/Config-Jira-OcorrenciasAbertas-01.png)
 
-## 1.2. Configurar Tipos de Ocorrências para o projeto
+---
 
-* No menu `Pojeto >> Ver todos os projetos` clique no link do nome do projeto `RPA`
+## 1.2. Configurar Tipos de Ocorrências para as pendências do projeto
 
-![Config-Jira-NavegarNosProjetos-01.png](printscreen/Config-Jira-NavegarNosProjetos-01.png)
+* No menu superior principal clique no link do item de menu `Administração >> Pendências`
+* Na página de `Administração` na aba `Pendências` observar os itens do `sub-menu de Configurações de Pendências`
 
-* No `menu lateral esquerdo` da página `Ocorrências abertas` clicar no link `Configurações do Projeto`
+![Config-Jira-AdminPendencia-01.png](printscreen/Config-Jira-AdminPendencia-01.png)
+![Config-Jira-AdminPendencia-02.png](printscreen/Config-Jira-AdminPendencia-02.png)
 
-![Config-Jira-OcorrenciasAbertas-01.png](printscreen/Config-Jira-OcorrenciasAbertas-01.png)
+* Na página de `Configurações do Pendências` clicar no item do sub-menu `Tipos de Ocorrências`
+* Na página de `Configurações do Pendências` no sub-menu `Tipos de Ocorrências` clicar no botão `Adicionar Tipos de Ocorrências`
+* Na caixa de diálogo `Adicionar Tipo de Item` preencha os campos/valores abaixo e clique no botão `Adicionar`
+  * Nome: `RPA`
+  * Descrição: `RPA`
+  * Tipo: `Tipo de Issue padrão`
+
+![Config-Jira-AdminPendenciaCriarTipoItemOcorrencia-01.png](printscreen/Config-Jira-AdminPendenciaCriarTipoItemOcorrencia-01.png)
+
+* Na página de `Configurações do Pendências` no sub-menu `Esquemas de Tipos de Ocorrências` clicar no botão `Adicionar Tipos de Ocorrências` clicar no link `Editar` correspondente ao nome `RPA: Esquema de Tipo de Item para Desenvolvimento de Software`
+
+![Config-Jira-AdminPendenciaConfigurarEsquemaDeTipoDeOcorrencia-01.png](printscreen/Config-Jira-AdminPendenciaConfigurarEsquemaDeTipoDeOcorrencia-01.png)
+
+* Na página de `Configurações do Pendências` no sub-menu `Esquemas de Tipos de Ocorrências` na aba `Modify Esquema de Tipo de Item` arrastar e soltar nas lista `Tipos de Itens para o actual regime` e  `Disponível Tipo de Itens` de forma que ao final sobre apenas o tipo de item `RPA` na lista `Tipos de Itens para o actual regime`. Em seguida clique no botão `Salvar`	
+
+![Config-Jira-AdminPendenciaConfigurarEsquemaDeTipoDeOcorrencia-02.png](printscreen/Config-Jira-AdminPendenciaConfigurarEsquemaDeTipoDeOcorrencia-02.png)
+![Config-Jira-AdminPendenciaConfigurarEsquemaDeTipoDeOcorrencia-03.png](printscreen/Config-Jira-AdminPendenciaConfigurarEsquemaDeTipoDeOcorrencia-03.png)
 
 
+---
+
+* No menu superior principal clique no link do item de menu `Administração >> Pojetos` e em seguida clique no link do nome do projeto `RPA`
+
+![Config-Jira-AdminProjetos-01.png](printscreen/Config-Jira-AdminProjetos-01.png)
+
+* Na página de `Configurações do Projeto` no sub-menu `Resumo` observar os itens do `sub-menu de Configurações de Projeto`
+
+![Config-Jira-ConfigProjeto-01.png](printscreen/Config-Jira-ConfigProjeto-01.png)
+![Config-Jira-ConfigProjeto-01.png](printscreen/Config-Jira-ConfigProjeto-01.png)
+
+* Na página de `Configurações do Projeto` no sub-menu `Resumo` clicar no item do sub-menu `Tipos de Ocorrências`
+
+* Na página de `Configurações do Projeto` no sub-menu `Tipos de Ocorrências` clicar no botão `Ações` e em seguida no sub-item  `Use um esquema diferente`
+
+![Config-Jira-ConfigTipoOcorrencia-01.png](printscreen/Config-Jira-ConfigTipoOcorrencia-01.png)
+
+* Na página de administração de projeto `Selecione Esquema Tipo Issue para o projeto` escolha a opção ``
 
 
 ---
