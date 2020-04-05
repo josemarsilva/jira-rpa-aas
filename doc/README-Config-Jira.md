@@ -9,6 +9,7 @@ Guia de Configuração da ferramenta Jira para o projeto [Jira RPA aaS](../READM
   * [Criar Projeto](#11-criar-projeto)
   * [Configurar Tipos de Ocorrências](#12-configurar-tipos-de-ocorrências-para-as-pendências-do-projeto)
   * [Configurar Fluxo de Trabalho](#13-configurar-fluxo-de-trabalho-para-as-pendências-do-projeto)
+  * [Configurar Telas](#14-configurar-telas-para-as-pendências-do-projeto)
 
 ---
 
@@ -91,7 +92,7 @@ Guia de Configuração da ferramenta Jira para o projeto [Jira RPA aaS](../READM
   * Clicar no botão `Publicar` para salvar o seu rascunho como alteração definitiva
   * Na caixa de diálogo `Publicar Rascunho do Fluxo de Trabalho` escolher a opção `Salvar uma cópia backup - Não` e em seguida clicar no botão `Publicar`
   * Se você fez tudo certo Então o seu Workflow deve ficar assim:
-
+  
 ![StateDiagram%20-%20Context.png](./StateDiagram%20-%20Context.png)
 
 
@@ -144,6 +145,28 @@ Guia de Configuração da ferramenta Jira para o projeto [Jira RPA aaS](../READM
 | RPA        | Ver solicitação  | RPA: Tela de Item Padrão para Desenvolvimento de Software |
 
 ![Config-Jira-AdminProjetoTelas-01.png](printscreen/Config-Jira-AdminProjetoTelas-01.png)
+
+* No menu superior principal clique no link do item de menu `Administração >> Pendências`
+* Na página de `Configurações do Pendências` clicar no item do sub-menu `Esquemas de tela`
+
+* Na página de `Ver esquemas de Telas` de `Administração` na aba `Pendêncas` item`de sub-menu `Esquemas de tela`
+  * Localizar a linha correspondente a tela `RPA: Tela de Item Padrão para Desenvolvimento de Software` e clicar no link `Configurar`
+  * Em seguida, clicar no botão `Associar uma operação de ocorrência a uma tela` e adicionar as seguintes configurações
+    * Na caixa de diálogo `Associar uma operação de ocorrência a uma tela` adicionar as seguintes configurações 
+
+| Operação de Issue | Tela                                                      |
+| ----------------- |---------------------------------------------------------- |
+| Criar Pendência   | RPA: Tela de Item Padrão para Desenvolvimento de Software |
+| Editar Pendência  | RPA: Tela de Item Padrão para Desenvolvimento de Software |
+| Ver solicitação   | RPA: Tela de Item Padrão para Desenvolvimento de Software |
+
+![Config-Jira-AdminPendenciaConfigurarEsquemaDeTelas-01.png](printscreen/Config-Jira-AdminPendenciaConfigurarEsquemaDeTelas-01.png)
+![Config-Jira-AdminPendenciaConfigurarEsquemaDeTelas-02.png](printscreen/Config-Jira-AdminPendenciaConfigurarEsquemaDeTelas-02.png)
+![Config-Jira-AdminPendenciaConfigurarEsquemaDeTelas-03.png](printscreen/Config-Jira-AdminPendenciaConfigurarEsquemaDeTelas-03.png)
+![Config-Jira-AdminPendenciaConfigurarEsquemaDeTelas-04.png](printscreen/Config-Jira-AdminPendenciaConfigurarEsquemaDeTelas-04.png)
+![Config-Jira-AdminPendenciaConfigurarEsquemaDeTelas-05.png](printscreen/Config-Jira-AdminPendenciaConfigurarEsquemaDeTelas-05.png)
+
+
 
 
 
