@@ -106,6 +106,12 @@ Guia de Configuração da ferramenta Jira para o projeto [Jira RPA aaS](../READM
   * `Data Concluido`: Tipo `Date Time Picker`
   * `Data Falha`: Tipo `Date Time Picker`
   * `Data Cancelamento`: Tipo `Date Time Picker`
+* Na página de `Administração` no sub-menu `Campos Personalizados` clicar no botão `ícone engrenagem` em seguida `Editar` para configurar cada um dos campos:
+  * `Qtde Submetido`: Tipo `Numérico`
+  * `Data Submetido`: Tipo `Date Time Picker`
+  * `Data Concluido`: Tipo `Date Time Picker`
+  * `Data Falha`: Tipo `Date Time Picker`
+  * `Data Cancelamento`: Tipo `Date Time Picker`
 
 ![Config-Jira-AdminPendenciaConfigurarCamposCustomizados-01.png](printscreen/Config-Jira-AdminPendenciaConfigurarCamposCustomizados-01.png)
 
@@ -119,6 +125,27 @@ Guia de Configuração da ferramenta Jira para o projeto [Jira RPA aaS](../READM
   *  Aguardar ate aparecer o botão `Finalizar`, quando aparecer clicar no botão `Finalizar`
 
 ![Config-Jira-AdminProjetoConfigProjeto-01.png](printscreen/Config-Jira-AdminProjetoConfigProjeto-01.png)
+
+
+## 1.5. Configurar Telas para as pendências do projeto
+
+* No menu superior principal clique no link do item de menu `Administração >> Projetos`
+  * Na página de `Administração` na aba `Projetos` clicar no link com o nome do projeto `RPA`
+
+![Config-Jira-AdminProjetoListarProjetos-01.png](printscreen/Config-Jira-AdminProjetoListarProjetos-01.png)
+
+* Na página de `Configurações Projeto` clicar no item do sub-menu `Telas`
+  * as configurações esperadas são: 
+
+| Issue Type | Operação         | Tela                                                      |
+| ---------- | ---------------- |---------------------------------------------------------- |
+| RPA        | Criar Pendência  | RPA: Tela de Item Padrão para Desenvolvimento de Software |
+| RPA        | Editar Pendência | RPA: Tela de Item Padrão para Desenvolvimento de Software |
+| RPA        | Ver solicitação  | RPA: Tela de Item Padrão para Desenvolvimento de Software |
+
+![Config-Jira-AdminProjetoTelas-01.png](printscreen/Config-Jira-AdminProjetoTelas-01.png)
+
+
 
 
 ---
