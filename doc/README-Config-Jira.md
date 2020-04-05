@@ -90,6 +90,9 @@ Guia de Configuração da ferramenta Jira para o projeto [Jira RPA aaS](../READM
     * Do estado: `FALHA`` - Para o estado: `EM EDIÇÃO` - Nome: `Editar` - Tela: `Nenhum`
   * Clicar no botão `Publicar` para salvar o seu rascunho como alteração definitiva
   * Na caixa de diálogo `Publicar Rascunho do Fluxo de Trabalho` escolher a opção `Salvar uma cópia backup - Não` e em seguida clicar no botão `Publicar`
+  * Se você fez tudo certo Então o seu Workflow deve ficar assim:
+
+![StateDiagram%20-%20Context.png](./StateDiagram%20-%20Context.png)
 
 
 ## 1.4. Configurar Campos Customizados para as pendências do projeto
