@@ -149,18 +149,41 @@ Guia de Configuração da ferramenta Jira para o projeto [Jira RPA aaS](../READM
 ![Config-Jira-AdminProjetoTelas-01.png](printscreen/Config-Jira-AdminProjetoTelas-01.png)
 
 * No menu superior principal clique no link do item de menu `Administração >> Pendências`
-* Na página de `Configurações do Pendências` clicar no item do sub-menu `Esquemas de tela`
 
+* Na página de `Configurações do Pendências` clicar no item do sub-menu `Telas`
+  * Localizar a linha correspondente a tela `RPA: Tela de Item Padrão para Desenvolvimento de Software` e clicar no link `Copiar`
+  * Em seguida, na página de diálogo `Copiar Tela` configurar os campos:
+    * Nome: `RPA: Esquema de Tela Padrão para Desenvolvimento de Software (Ver)`
+    * Clique no botão `Copiar`
+
+![Config-Jira-AdminPendenciaConfigurarTelas-01.png](printscreen/Config-Jira-AdminPendenciaConfigurarTelas-01.png)
+![Config-Jira-AdminPendenciaConfigurarTelas-02.png](printscreen/Config-Jira-AdminPendenciaConfigurarTelas-02.png)
+
+* Na página de `Configurações do Pendências` clicar no item do sub-menu `Telas`
+  * Localizar a linha correspondente a tela `RPA: Tela de Item Padrão para Desenvolvimento de Software (Ver)` e clicar no link `Configurar`
+  * Em seguida, no formulário `Configurar Tela` configurar os campos:
+    * Adicionar as seguintes configurações:
+
+| Campo Tabulação   |
+| ----------------- |
+| Data Submetido    |
+| Qtde Submetido    |
+| Data Concluido    |
+| Data Falha        |
+| Data Cancelamento |
+
+
+* Na página de `Configurações do Pendências` clicar no item do sub-menu `Esquemas de tela`
 * Na página de `Ver esquemas de Telas` de `Administração` na aba `Pendêncas` item`de sub-menu `Esquemas de tela`
-  * Localizar a linha correspondente a tela `RPA: Tela de Item Padrão para Desenvolvimento de Software` e clicar no link `Configurar`
+  * Localizar a linha correspondente a tela `RPA: Esquema de Tela Padrão para Desenvolvimento de Software` e clicar no link `Configurar`
   * Em seguida, clicar no botão `Associar uma operação de ocorrência a uma tela` e adicionar as seguintes configurações
     * Na caixa de diálogo `Associar uma operação de ocorrência a uma tela` adicionar as seguintes configurações 
 
-| Operação de Issue | Tela                                                      |
-| ----------------- |---------------------------------------------------------- |
-| Criar Pendência   | RPA: Tela de Item Padrão para Desenvolvimento de Software |
-| Editar Pendência  | RPA: Tela de Item Padrão para Desenvolvimento de Software |
-| Ver solicitação   | RPA: Tela de Item Padrão para Desenvolvimento de Software |
+| Operação de Issue | Tela                                                            |
+| ----------------- |---------------------------------------------------------------- |
+| Criar Pendência   | RPA: Tela de Item Padrão para Desenvolvimento de Software       |
+| Editar Pendência  | RPA: Tela de Item Padrão para Desenvolvimento de Software       |
+| Ver solicitação   | RPA: Tela de Item Padrão para Desenvolvimento de Software (Ver) |
 
 ![Config-Jira-AdminPendenciaConfigurarEsquemaDeTelas-01.png](printscreen/Config-Jira-AdminPendenciaConfigurarEsquemaDeTelas-01.png)
 ![Config-Jira-AdminPendenciaConfigurarEsquemaDeTelas-02.png](printscreen/Config-Jira-AdminPendenciaConfigurarEsquemaDeTelas-02.png)
@@ -169,8 +192,34 @@ Guia de Configuração da ferramenta Jira para o projeto [Jira RPA aaS](../READM
 ![Config-Jira-AdminPendenciaConfigurarEsquemaDeTelas-05.png](printscreen/Config-Jira-AdminPendenciaConfigurarEsquemaDeTelas-05.png)
 
 
+## 1.6. Configurar Grupos de Usuários, Usuários e Esquemas de Permissão
 
+* No menu superior principal clique no link do item de menu `Administração >> Gerenciamento de Usuários`
+  * Na página de `Administração` na aba `Gerenciamento de Usuário` clique no item de sub-menu `Grupos`
 
+![Config-Jira-AdminUsuarios-01.png](printscreen/Config-Jira-AdminUsuarios-01.png)
+![Config-Jira-AdminUsuarios-02.png](printscreen/Config-Jira-AdminUsuarios-02.png)
+
+* Na página de `Administração` na aba `Gerenciamento de Grupos` na aba `Grupos` clicar em `Adicionar Grupo`
+    * Adicionar as seguintes configurações:
+
+| Nome do Grupo      | Membros do Grupo |
+| ------------------ | ---------------- |
+| rpa-administrators | admin            |
+| rpa-users          | user             |
+
+* Na página de `Administração` na aba `Gerenciamento de Grupos` na aba `Grupos` clicar em `Adicionar Grupo`
+    * Adicionar as seguintes configurações:
+
+* No menu superior principal clique no link do item de menu `Administração >> Pendências`
+  * Na página de `Administração` na aba `Pendências` clique no item de sub-menu `Esquemas de Permissão`
+    * Na página de `Esquemas de Permissão` em `Administração` na aba `Pendêncas` clique no link `Adicionar esquema de permissão`
+      * Adicionar as seguintes configurações:
+
+| Nome                      |
+| ------------------------- |
+| RPA: Esquema de permissão |
+  
 
 
 ---
