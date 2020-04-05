@@ -9,7 +9,9 @@ Guia de Configuração da ferramenta Jira para o projeto [Jira RPA aaS](../READM
   * [Criar Projeto](#11-criar-projeto)
   * [Configurar Tipos de Ocorrências](#12-configurar-tipos-de-ocorrências-para-as-pendências-do-projeto)
   * [Configurar Fluxo de Trabalho](#13-configurar-fluxo-de-trabalho-para-as-pendências-do-projeto)
-  * [Configurar Telas](#14-configurar-telas-para-as-pendências-do-projeto)
+  * [Configurar Campos Customizados](#14-configurar-campos-customizados-para-as-pendências-do-projeto)
+  * [Configurar Telas](#15-configurar-telas-para-as-pendências-do-projeto)
+
 
 ---
 
