@@ -7,7 +7,8 @@ Guia de Configuração da ferramenta Jira para o projeto [Jira RPA aaS](../READM
 
 * [Passo a Passo](#1-passo-a-passo)
   * [Criar Projeto](#11-criar-projeto)
-  * [Configurar Tipos de Ocorrências para as pendências do projeto](#12-configurar-tipos-de-ocorrências-para-as-pendências-do-projeto)
+  * [Configurar Tipos de Ocorrências](#12-configurar-tipos-de-ocorrências-para-as-pendências-do-projeto)
+  * [Configurar Fluxo de Trabalho](#13-configurar-fluxo-de-trabalho-para-as-pendências-do-projeto)
 
 ---
 
@@ -56,10 +57,65 @@ Guia de Configuração da ferramenta Jira para o projeto [Jira RPA aaS](../READM
 
 ![Config-Jira-AdminPendenciaConfigurarEsquemaDeTipoDeOcorrencia-01.png](printscreen/Config-Jira-AdminPendenciaConfigurarEsquemaDeTipoDeOcorrencia-01.png)
 
-* Na página de `Configurações do Pendências` no sub-menu `Esquemas de Tipos de Ocorrências` na aba `Modify Esquema de Tipo de Item` arrastar e soltar nas lista `Tipos de Itens para o actual regime` e  `Disponível Tipo de Itens` de forma que ao final sobre apenas o tipo de item `RPA` na lista `Tipos de Itens para o actual regime`. Em seguida clique no botão `Salvar`	
+* Na página de `Configurações do Pendências` no sub-menu `Esquemas de Tipos de Ocorrências` na aba `Modify Esquema de Tipo de Item` arrastar e soltar nas lista `Tipos de Itens para o actual regime` e  `Disponível Tipo de Itens` de forma que ao final sobre apenas o tipo de item `RPA` na lista `Tipos de Itens para o actual regime`. Em seguida clique no botão `Salvar`    
 
 ![Config-Jira-AdminPendenciaConfigurarEsquemaDeTipoDeOcorrencia-02.png](printscreen/Config-Jira-AdminPendenciaConfigurarEsquemaDeTipoDeOcorrencia-02.png)
 ![Config-Jira-AdminPendenciaConfigurarEsquemaDeTipoDeOcorrencia-03.png](printscreen/Config-Jira-AdminPendenciaConfigurarEsquemaDeTipoDeOcorrencia-03.png)
+
+
+## 1.3. Configurar Fluxo de Trabalho para as pendências do projeto
+
+* No menu superior principal clique no link do item de menu `Administração >> Pendências`
+* Na página de `Administração` na aba `Pendências` observar os itens do `sub-menu de Configurações de Pendências`
+* Na página de `Configurações do Pendências` clicar no item do sub-menu `Fluxos de Trabalho`
+* Na página de `Administração` no sub-menu `Fluxos de Trabalhos` clicar no link `Editar` na linha relacionada ao projeto `Software Simplified Workflow for Project RPA`
+
+![Config-Jira-AdminPendenciaConfigurarWorkflow-01.png](printscreen/Config-Jira-AdminPendenciaConfigurarWorkflow-01.png)
+
+
+* Na página de `Administração` no sub-menu `Fluxos de Trabalhos`
+  * Clicar no botão `Diagrama` para ativar a edição do fluxo de trabalho de forma gráfica em um diagrama
+  * Clicar no checkbox `Mostrar rótulos de transição` para mostrar rótulos na forma gráfica em um diagrama
+  * Remover todos os estados existentes que foram herdados do tipo padrão do projeto: Ex: `TO DO`, `IN PROGRESS`, `IN REVIEW`, `DONE`
+  * Criar a seguinte lista de estados com as seguintes propriedades de atributos:
+    * `EM EDIÇÃO`: Categoria `Pendências` 
+    * `SUBMETIDO`: Categoria `Em andamento`
+    * `CONCLUÍDO`: Categoria `Concluído` 
+    * `FALHA`: Categoria `Pendências`
+    * `CANCELADO`: Categoria `Concluído` 
+  * Criar as seguintes transiçõe de estados:
+    * Do estado: `qualquer estado` - Para o estado: `CANCELADO` - Nome: `Cancelar` - Tela: `Nenhum`
+    * Do estado: `EM EDIÇÃO` - Para o estado: `SUBMETIDO` - Nome: `Submeter` - Tela: `Nenhum`
+    * Do estado: `SUBMETIDO` - Para o estado: `CONCUÍDO` - Nome: `Concluir` - Tela: `Nenhum`
+    * Do estado: `FALHA`` - Para o estado: `EM EDIÇÃO` - Nome: `Editar` - Tela: `Nenhum`
+  * Clicar no botão `Publicar` para salvar o seu rascunho como alteração definitiva
+  * Na caixa de diálogo `Publicar Rascunho do Fluxo de Trabalho` escolher a opção `Salvar uma cópia backup - Não` e em seguida clicar no botão `Publicar`
+
+
+## 1.4. Configurar Campos Customizados para as pendências do projeto
+
+* No menu superior principal clique no link do item de menu `Administração >> Pendências`
+* Na página de `Administração` na aba `Pendências` observar os itens do `sub-menu de Configurações de Pendências`
+* Na página de `Configurações do Pendências` clicar no item do sub-menu `Campos Personalizados`
+* Na página de `Administração` no sub-menu `Campos Personalizados` clicar no botão `Adicionar campo personalizado` para criar os seguintes campos:
+  * `Qtde Submetido`: Tipo `Numérico`
+  * `Data Submetido`: Tipo `Date Time Picker`
+  * `Data Concluido`: Tipo `Date Time Picker`
+  * `Data Falha`: Tipo `Date Time Picker`
+  * `Data Cancelamento`: Tipo `Date Time Picker`
+
+![Config-Jira-AdminPendenciaConfigurarCamposCustomizados-01.png](printscreen/Config-Jira-AdminPendenciaConfigurarCamposCustomizados-01.png)
+
+* No menu superior principal clique no link do item de menu `Administração >> Projetos`
+  * Na página de `Administração` na aba `Projetos` clicar no link com o nome do projeto `RPA`
+
+![Config-Jira-AdminProjetoListarProjetos-01.png](printscreen/Config-Jira-AdminProjetoListarProjetos-01.png)
+
+* Na página de `Configurações Projeto` clicar no item do sub-menu `Reindexar Projeto`
+  *  Em seguida, confirmar no botão `Iniciar a reindexação`
+  *  Aguardar ate aparecer o botão `Finalizar`, quando aparecer clicar no botão `Finalizar`
+
+![Config-Jira-AdminProjetoConfigProjeto-01.png](printscreen/Config-Jira-AdminProjetoConfigProjeto-01.png)
 
 
 ---
