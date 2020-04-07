@@ -65,6 +65,7 @@ Guia de Configuração da ferramenta Jira para o projeto [Jira RPA aaS](../READM
 ![Config-Jira-AdminPendenciaConfigurarEsquemaDeTipoDeOcorrencia-02.png](printscreen/Config-Jira-AdminPendenciaConfigurarEsquemaDeTipoDeOcorrencia-02.png)
 ![Config-Jira-AdminPendenciaConfigurarEsquemaDeTipoDeOcorrencia-03.png](printscreen/Config-Jira-AdminPendenciaConfigurarEsquemaDeTipoDeOcorrencia-03.png)
 
+---
 
 ## 1.3. Configurar Fluxo de Trabalho para as pendências do projeto
 
@@ -97,6 +98,7 @@ Guia de Configuração da ferramenta Jira para o projeto [Jira RPA aaS](../READM
   
 ![StateDiagram%20-%20Context.png](./StateDiagram%20-%20Context.png)
 
+---
 
 ## 1.4. Configurar Campos Customizados para as pendências do projeto
 
@@ -129,6 +131,7 @@ Guia de Configuração da ferramenta Jira para o projeto [Jira RPA aaS](../READM
 
 ![Config-Jira-AdminProjetoConfigProjeto-01.png](printscreen/Config-Jira-AdminProjetoConfigProjeto-01.png)
 
+---
 
 ## 1.5. Configurar Telas para as pendências do projeto
 
@@ -173,6 +176,19 @@ Guia de Configuração da ferramenta Jira para o projeto [Jira RPA aaS](../READM
 | Data Cancelamento |
 
 
+* Na página de `Configurações do Pendências` clicar no item do sub-menu `Telas`
+  * Localizar a linha correspondente a tela `RPA: Tela de Item Padrão para Desenvolvimento de Software` e clicar no link `Configurar`
+  * Em seguida, no formulário `Configurar Tela` configurar os campos:
+    * Adicionar as seguintes configurações:
+
+| Campo Tabulação   |
+| ----------------- |
+| Data Submetido    |
+| Qtde Submetido    |
+| Data Concluido    |
+| Data Falha        |
+| Data Cancelamento |
+
 * Na página de `Configurações do Pendências` clicar no item do sub-menu `Esquemas de tela`
 * Na página de `Ver esquemas de Telas` de `Administração` na aba `Pendêncas` item`de sub-menu `Esquemas de tela`
   * Localizar a linha correspondente a tela `RPA: Esquema de Tela Padrão para Desenvolvimento de Software` e clicar no link `Configurar`
@@ -191,6 +207,7 @@ Guia de Configuração da ferramenta Jira para o projeto [Jira RPA aaS](../READM
 ![Config-Jira-AdminPendenciaConfigurarEsquemaDeTelas-04.png](printscreen/Config-Jira-AdminPendenciaConfigurarEsquemaDeTelas-04.png)
 ![Config-Jira-AdminPendenciaConfigurarEsquemaDeTelas-05.png](printscreen/Config-Jira-AdminPendenciaConfigurarEsquemaDeTelas-05.png)
 
+---
 
 ## 1.6. Configurar Grupos de Usuários, Usuários e Esquemas de Permissão
 
@@ -208,18 +225,7 @@ Guia de Configuração da ferramenta Jira para o projeto [Jira RPA aaS](../READM
 | rpa-administrators | admin            |
 | rpa-users          | user             |
 
-* Na página de `Administração` na aba `Gerenciamento de Grupos` na aba `Grupos` clicar em `Adicionar Grupo`
-    * Adicionar as seguintes configurações:
-
-* No menu superior principal clique no link do item de menu `Administração >> Pendências`
-  * Na página de `Administração` na aba `Pendências` clique no item de sub-menu `Esquemas de Permissão`
-    * Na página de `Esquemas de Permissão` em `Administração` na aba `Pendêncas` clique no link `Adicionar esquema de permissão`
-      * Adicionar as seguintes configurações:
-
-| Nome                      |
-| ------------------------- |
-| RPA: Esquema de permissão |
-  
+---
 
 ## 1.7. Configurar Conditions das Transições do Workflow vs Grupo Usuários
 
@@ -247,18 +253,10 @@ Guia de Configuração da ferramenta Jira para o projeto [Jira RPA aaS](../READM
 | Transição | Status de | Status para | Grupo     |
 | --------- | --------- | ----------- | --------- |
 | Cria      |    n/a    | EM EDIÇÃO   | rpa-users |
-| Submeter  |
-| Concluir  |
-| Falhar    |
-| Editar    |
-
-
-  
-
-
-
-
-
+| Submeter  |           |             | rpa-users |
+| Concluir  |           |             | rpa-users |
+| Falhar    |           |             | rpa-users |
+| Editar    |           |             | rpa-users |
 
 ---
 
