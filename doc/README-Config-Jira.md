@@ -11,7 +11,7 @@ Guia de Configuração da ferramenta Jira para o projeto [Jira RPA aaS](../READM
   * [Configurar Fluxo de Trabalho](#13-configurar-fluxo-de-trabalho-para-as-pendências-do-projeto)
   * [Configurar Campos Customizados](#14-configurar-campos-customizados-para-as-pendências-do-projeto)
   * [Configurar Telas](#15-configurar-telas-para-as-pendências-do-projeto)
-
+  * [Configurar Grupos de Usuários, Usuários e Esquemas de Permissão](#16%20configurar%20grupos%20de%20usuários-%20Usuários%20e%20Esquemas%20de%20permissão)
 
 ---
 
@@ -123,7 +123,7 @@ Guia de Configuração da ferramenta Jira para o projeto [Jira RPA aaS](../READM
 
 ![Config-Jira-AdminProjetoListarProjetos-01.png](printscreen/Config-Jira-AdminProjetoListarProjetos-01.png)
 
-* Na página de `Configurações Projeto` clicar no item do sub-menu `Reindexar Projeto`
+* Na página de `Configurações do Projeto` clicar no item do sub-menu `Reindexar Projeto`
   *  Em seguida, confirmar no botão `Iniciar a reindexação`
   *  Aguardar ate aparecer o botão `Finalizar`, quando aparecer clicar no botão `Finalizar`
 
@@ -137,7 +137,7 @@ Guia de Configuração da ferramenta Jira para o projeto [Jira RPA aaS](../READM
 
 ![Config-Jira-AdminProjetoListarProjetos-01.png](printscreen/Config-Jira-AdminProjetoListarProjetos-01.png)
 
-* Na página de `Configurações Projeto` clicar no item do sub-menu `Telas`
+* Na página de `Configurações do Projeto` clicar no item do sub-menu `Telas`
   * as configurações esperadas são: 
 
 | Issue Type | Operação         | Tela                                                      |
@@ -220,6 +220,44 @@ Guia de Configuração da ferramenta Jira para o projeto [Jira RPA aaS](../READM
 | ------------------------- |
 | RPA: Esquema de permissão |
   
+
+## 1.7. Configurar Conditions das Transições do Workflow vs Grupo Usuários
+
+* No menu superior principal clique no link do item de menu `Administração >> Projetos`
+  * Na página de `Administração` na aba `Projetos` clicar no link com o nome do projeto `RPA`
+
+![Config-Jira-AdminProjetoListarProjetos-01.png](printscreen/Config-Jira-AdminProjetoListarProjetos-01.png)
+
+* Na página de `Configurações do Projeto` clicar no item do sub-menu `Fluxos de Trabalho`
+
+![Config-Jira-AdminProjetoConfigurarWorkflow-01.png](printscreen/Config-Jira-AdminProjetoConfigurarWorkflow-01.png)
+  
+* Na página `Fluxos de Trabalho` de `Configurações do Projeto` localizar a linha da configuração `Software Simplified Workflow for Project RPA` e clicar no ícone de lápis nas `Ações`
+
+![Config-Jira-AdminProjetoConfigurarWorkflow-02.png](printscreen/Config-Jira-AdminProjetoConfigurarWorkflow-02.png)
+
+* Na página edição do `Fluxos de Trabalho` `Software Simplified Workflow for Project RPA` de `Configurações do Projeto` clicar no botão `Diagrama` para mostrar o modo de visualização do diagrama o que facilita as alterações
+  * Se você fez tudo certo Então o seu Workflow deve ficar assim:
+  
+![StateDiagram%20-%20Context.png](./StateDiagram%20-%20Context.png)
+
+  * Nesta página de Diagrama, você ira clicar em cada uma das linhas que representam as transições e vai configurar o grupo de usuários configurados com condição para realizarem as transições
+    * Adicionar as seguintes configurações:
+
+| Transição | Status de | Status para | Grupo     |
+| --------- | --------- | ----------- | --------- |
+| Cria      |    n/a    | EM EDIÇÃO   | rpa-users |
+| Submeter  |
+| Concluir  |
+| Falhar    |
+| Editar    |
+
+
+  
+
+
+
+
 
 
 ---
