@@ -247,16 +247,28 @@ Guia de Configuração da ferramenta Jira para o projeto [Jira RPA aaS](../READM
   
 ![StateDiagram%20-%20Context.png](./StateDiagram%20-%20Context.png)
 
-  * Nesta página de Diagrama, você ira clicar em cada uma das linhas que representam as transições e vai configurar o grupo de usuários configurados com condição para realizarem as transições
-    * Adicionar as seguintes configurações:
+* Agora você vai realizar as configurações `Grupo` para cada uma das `Transições` conforme a tabela de configuração informada abaixo. Para tal siga os passos:
+  * Na página de edição do Diagrama, você ira clicar em **cada uma das linhas** que representam as transições e em seguida no link `Condições`
+  * Na página de edição das condições das `Transações` de **cada uma das transações** 
+    * Adicionar a condição `O usuário está no grupo`
+      * Grupo: `rpa-users` ou `rpa-administrators` conforme a tabela de configurações abaixo
+    * Clicar no botão de  `Publicar` o fluxo de trabalho
+      * Escolher a opção `Não` para a pergunta `Salvar Cópia do Backup` e confirmar no botão `Publicar`
 
-| Transição | Status de | Status para | Grupo     |
-| --------- | --------- | ----------- | --------- |
-| Cria      |    n/a    | EM EDIÇÃO   | rpa-users |
-| Submeter  |           |             | rpa-users |
-| Concluir  |           |             | rpa-users |
-| Falhar    |           |             | rpa-users |
-| Editar    |           |             | rpa-users |
+| Transição   | Status de   | Status para | Grupo(s)                          |
+| ----------- | ----------- | ----------- | --------------------------------- |
+| `Submeter`  | `EM EDIÇÃO` | `SUBMETIDO` | `rpa-administrators`, `rpa-users` |
+| `Concluir`  | `SUBMETIDO` | `CONCLUÍDO` | `rpa-administrators`              |
+| `Falhar`    | `SUBMETIDO` | `FALHA`     | `rpa-administrators`              |
+| `Editar`    | `FALHA`     | `EM EDIÇÃO` | `rpa-administrators`, `rpa-users` |
+| `Cancelar`  | _todos_     | `CANCELADO` | `rpa-administrators`, `rpa-users` |
+
+![Config-Jira-AdminProjetoConfigurarWorkflowTransition-01.png](printscreen/Config-Jira-AdminProjetoConfigurarWorkflowTransition-01.png)
+![Config-Jira-AdminProjetoConfigurarWorkflowTransitionConditions-01.png](printscreen/Config-Jira-AdminProjetoConfigurarWorkflowTransitionConditions-01.png)
+![Config-Jira-AdminProjetoConfigurarWorkflowTransitionConditions-02.png](printscreen/Config-Jira-AdminProjetoConfigurarWorkflowTransitionConditions-02.png)
+![Config-Jira-AdminProjetoConfigurarWorkflowTransitionConditions-03.png](printscreen/Config-Jira-AdminProjetoConfigurarWorkflowTransitionConditions-03.png)
+![Config-Jira-AdminProjetoConfigurarWorkflowTransitionConditions-04.png](printscreen/Config-Jira-AdminProjetoConfigurarWorkflowTransitionConditions-04.png)
+![Config-Jira-AdminProjetoConfigurarWorkflowTransitionConditions-05.png](printscreen/Config-Jira-AdminProjetoConfigurarWorkflowTransitionConditions-05.png)
 
 ---
 
