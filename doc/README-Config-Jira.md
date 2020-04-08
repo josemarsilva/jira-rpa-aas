@@ -143,10 +143,12 @@ Guia de Configuração da ferramenta Jira para o projeto [Jira RPA aaS](../READM
 
 | Nome do campo              | Telas                                                           |
 | -------------------------- | --------------------------------------------------------------- |
-| Acompanhamento de Horas, Anexos, Data Cancelamento, Data Concluido, Data Falha, Data Submetido, Pendências Linkadas, Prioridade, Qtde Submetido, Responsável, Resumo, Rótulos, Solicitante, Tipo de Item | RPA: Tela de Item Padrão para Desenvolvimento de Software, RPA: Tela de Item Padrão para Desenvolvimento de Software (Ver) |
-| Comentário                 | _Renderers_                                                     |
-| Descrição                  | _Renderers_                                                     |
-| Resolução                  | _Resolve Issue Screen_                                          |
+| `Acompanhamento de Horas`, `Anexos`, `Data Cancelamento`, `Data Concluido`, `Data Falha`, `Data Submetido`, `Pendências Linkadas`, `Prioridade`, `Qtde Submetido`, `Responsável`, `Resumo`, `Rótulos`, `Solicitante`, `Tipo de Item` | 
+* `RPA: Tela de Item Padrão para Desenvolvimento de Software` 
+* `RPA: Tela de Item Padrão para Desenvolvimento de Software (Ver)` |
+| `Comentário`                 | _Renderers_                                                     |
+| `Descrição`                  | _Renderers_                                                     |
+| `Resolução`                  | _Resolve Issue Screen_                                          |
 
 ![Config-Jira-AdminPendenciaConfigurarCamposCustomizados-04.png](printscreen/Config-Jira-AdminPendenciaConfigurarCamposCustomizados-04.png)
 ![Config-Jira-AdminPendenciaConfigurarCamposCustomizados-05.png](printscreen/Config-Jira-AdminPendenciaConfigurarCamposCustomizados-05.png)
