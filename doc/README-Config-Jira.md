@@ -143,9 +143,7 @@ Guia de Configuração da ferramenta Jira para o projeto [Jira RPA aaS](../READM
 
 | Nome do campo              | Telas                                                           |
 | -------------------------- | --------------------------------------------------------------- |
-| `Acompanhamento de Horas`, `Anexos`, `Data Cancelamento`, `Data Concluido`, `Data Falha`, `Data Submetido`, `Pendências Linkadas`, `Prioridade`, `Qtde Submetido`, `Responsável`, `Resumo`, `Rótulos`, `Solicitante`, `Tipo de Item` | 
-* `RPA: Tela de Item Padrão para Desenvolvimento de Software` 
-* `RPA: Tela de Item Padrão para Desenvolvimento de Software (Ver)` |
+| `Acompanhamento de Horas`, `Anexos`, `Data Cancelamento`, `Data Concluido`, `Data Falha`, `Data Submetido`, `Pendências Linkadas`, `Prioridade`, `Qtde Submetido`, `Responsável`, `Resumo`, `Rótulos`, `Solicitante`, `Tipo de Item` | * `RPA: Tela de Item Padrão para Desenvolvimento de Software`  * `RPA: Tela de Item Padrão para Desenvolvimento de Software (Ver)` |
 | `Comentário`                 | _Renderers_                                                     |
 | `Descrição`                  | _Renderers_                                                     |
 | `Resolução`                  | _Resolve Issue Screen_                                          |
