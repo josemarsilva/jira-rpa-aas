@@ -12,6 +12,7 @@ Guia de Configuração da ferramenta Jira para o projeto [Jira RPA aaS](../READM
   * [Configurar Campos Customizados](#14-configurar-campos-customizados-para-as-pendências-do-projeto)
   * [Configurar Telas](#15-configurar-telas-para-as-pendências-do-projeto)
   * [Configurar Grupos de Usuários, Usuários e Esquemas de Permissão](#16%20configurar%20grupos%20de%20usuários-%20Usuários%20e%20Esquemas%20de%20permissão)
+  * [Configurar Condições das Transições](#17-configurar%20condições%20das%20transições%20do%20fluxo%20de%20trabalho%20vs%20grupo%20de%20usuários)
 
 ---
 
@@ -120,16 +121,68 @@ Guia de Configuração da ferramenta Jira para o projeto [Jira RPA aaS](../READM
 
 ![Config-Jira-AdminPendenciaConfigurarCamposCustomizados-01.png](printscreen/Config-Jira-AdminPendenciaConfigurarCamposCustomizados-01.png)
 
+* No menu superior principal clique no link do item de menu `Administração >> Pendências`
+* Na página de `Administração` na aba `Pendências` observar os itens do `sub-menu de Configurações de Pendências`
+* Na página de `Configurações do Pendências` clicar no item do sub-menu `Configurações de Campos`
+* Na página de `Ver Configurações de Campo` em `Administração` no sub-menu `Campos Personalizados` clicar no botão `Adicionar configurações de campo`:
+  * Na caixa de diálogo `Adicione uma configuração de campo` preencha os campos/valores abaixo e clique no botão `Adicionar`
+    * Nome: `RPA: Configurações de Campo`
+    * Clique no botão `Adicionar`
+
+![Config-Jira-AdminPendenciaConfigurarCamposCustomizados-02.png](printscreen/Config-Jira-AdminPendenciaConfigurarCamposCustomizados-02.png)
+![Config-Jira-AdminPendenciaConfigurarCamposCustomizados-03.png](printscreen/Config-Jira-AdminPendenciaConfigurarCamposCustomizados-03.png)
+
+* Em seguida configure os campos da configuração de campos `RPA: Configurações de Campo` que acabou de ser criada:
+  * No menu superior principal clique no link do item de menu `Administração >> Pendências`
+  * Na página de `Administração` na aba `Pendências` observar os itens do `sub-menu de Configurações de Pendências`
+  * Na página de `Configurações do Pendências` clicar no item do sub-menu `Configurações de Campos`
+    * Clique no botão `Configurar`
+    * Na págna `Ver configuração do campo` de `RPA: Configurações de Campo` para *cada uma* das linhas de configuração de um campo configurar conforme tabela abaixo
+    * Os campos que não estiverem presentes na tabela de configuração abaixo devem ser escondidos clicando no link `Esconder`.
+    * Os campos sistêmicos ou automaticamente renderizados que não devem ser alterados estarão em _itálico_ na tabela de configuração
+
+| Nome do campo              | Telas                                                           |
+| -------------------------- | --------------------------------------------------------------- |
+| Acompanhamento de Horas, Anexos, Data Cancelamento, Data Concluido, Data Falha, Data Submetido, Pendências Linkadas, Prioridade, Qtde Submetido, Responsável, Resumo, Rótulos, Solicitante, Tipo de Item | RPA: Tela de Item Padrão para Desenvolvimento de Software, RPA: Tela de Item Padrão para Desenvolvimento de Software (Ver) |
+| Comentário                 | _Renderers_                                                     |
+| Descrição                  | _Renderers_                                                     |
+| Resolução                  | _Resolve Issue Screen_                                          |
+
+![Config-Jira-AdminPendenciaConfigurarCamposCustomizados-04.png](printscreen/Config-Jira-AdminPendenciaConfigurarCamposCustomizados-04.png)
+![Config-Jira-AdminPendenciaConfigurarCamposCustomizados-05.png](printscreen/Config-Jira-AdminPendenciaConfigurarCamposCustomizados-05.png)
+
+* Em seguida configure os `Esquemas de configurações de campos`:
+  * No menu superior principal clique no link do item de menu `Administração >> Pendências`
+  * Na página de `Administração` na aba `Pendências` observar os itens do `sub-menu de Configurações de Pendências`
+  * Na página de `Configurações do Pendências` clicar no item do sub-menu `Esquemas de Configurações de Campos` e clicar no botão `Adicionar Esquema de configuração de campo`
+    * Na caixa de diálogo `Adicionar esquemas de configuração de campo` preencha os campos/valores abaixo e clique no botão `Adicionar`
+    * Nome: `RPA: Esquema de configuração de campo`
+      * Clique no botão `Adicionar`
+
+![Config-Jira-AdminPendenciaConfigurarCamposCustomizados-06.png](printscreen/Config-Jira-AdminPendenciaConfigurarCamposCustomizados-06.png)
+
+* Em seguida configure o esquema de configuração de campos `RPA: Esquema de configuração de campo` que acabou de ser criada:
+  * No menu superior principal clique no link do item de menu `Administração >> Pendências`
+  * Na página de `Administração` na aba `Pendências` observar os itens do `sub-menu de Configurações de Pendências`
+  * Na página de `Configurações do Pendências` clicar no item do sub-menu `Esquemas de Configurações de Campos`
+    * Clique no botão `Configurar`
+    * Na págna `Configurar o esquema de configuração de campo` de `RPA: Esquema de configuração de campo` o resultado esperado deve ser o abaixo
+
+| Nome                                  | Telas                        |
+| ------------------------------------- | ---------------------------- |
+| RPA: Esquema de configuração de campo |  RPA: Configurações de Campo |
+
+
 * No menu superior principal clique no link do item de menu `Administração >> Projetos`
   * Na página de `Administração` na aba `Projetos` clicar no link com o nome do projeto `RPA`
 
 ![Config-Jira-AdminProjetoListarProjetos-01.png](printscreen/Config-Jira-AdminProjetoListarProjetos-01.png)
+![Config-Jira-AdminProjetoConfigProjeto-01.png](printscreen/Config-Jira-AdminProjetoConfigProjeto-01.png)
 
 * Na página de `Configurações do Projeto` clicar no item do sub-menu `Reindexar Projeto`
   *  Em seguida, confirmar no botão `Iniciar a reindexação`
   *  Aguardar ate aparecer o botão `Finalizar`, quando aparecer clicar no botão `Finalizar`
 
-![Config-Jira-AdminProjetoConfigProjeto-01.png](printscreen/Config-Jira-AdminProjetoConfigProjeto-01.png)
 
 ---
 
@@ -220,14 +273,14 @@ Guia de Configuração da ferramenta Jira para o projeto [Jira RPA aaS](../READM
 * Na página de `Administração` na aba `Gerenciamento de Grupos` na aba `Grupos` clicar em `Adicionar Grupo`
     * Adicionar as seguintes configurações:
 
-| Nome do Grupo      | Membros do Grupo |
-| ------------------ | ---------------- |
-| rpa-administrators | admin            |
-| rpa-users          | user             |
+| Nome do Grupo        | Membros do Grupo |
+| -------------------- | ---------------- |
+| `rpa-administrators` | `user`, `admin`  |
+| `rpa-users`          | `user`           |
 
 ---
 
-## 1.7. Configurar Conditions das Transições do Workflow vs Grupo Usuários
+## 1.7. Configurar Condições das Transições do Fluxo de Trabalho vs Grupo de Usuários
 
 * No menu superior principal clique no link do item de menu `Administração >> Projetos`
   * Na página de `Administração` na aba `Projetos` clicar no link com o nome do projeto `RPA`
@@ -255,13 +308,13 @@ Guia de Configuração da ferramenta Jira para o projeto [Jira RPA aaS](../READM
     * Clicar no botão de  `Publicar` o fluxo de trabalho
       * Escolher a opção `Não` para a pergunta `Salvar Cópia do Backup` e confirmar no botão `Publicar`
 
-| Transição   | Status de   | Status para | Grupo(s)                          |
-| ----------- | ----------- | ----------- | --------------------------------- |
-| `Submeter`  | `EM EDIÇÃO` | `SUBMETIDO` | `rpa-administrators`, `rpa-users` |
-| `Concluir`  | `SUBMETIDO` | `CONCLUÍDO` | `rpa-administrators`              |
-| `Falhar`    | `SUBMETIDO` | `FALHA`     | `rpa-administrators`              |
-| `Editar`    | `FALHA`     | `EM EDIÇÃO` | `rpa-administrators`, `rpa-users` |
-| `Cancelar`  | _todos_     | `CANCELADO` | `rpa-administrators`, `rpa-users` |
+| Transição   | Status de   | Status para | Grupo(s)             |
+| ----------- | ----------- | ----------- | -------------------- |
+| `Submeter`  | `EM EDIÇÃO` | `SUBMETIDO` | `rpa-users`          |
+| `Concluir`  | `SUBMETIDO` | `CONCLUÍDO` | `rpa-administrators` |
+| `Falhar`    | `SUBMETIDO` | `FALHA`     | `rpa-administrators` |
+| `Editar`    | `FALHA`     | `EM EDIÇÃO` | `rpa-users`          |
+| `Cancelar`  | _todos_     | `CANCELADO` | `rpa-users`          |
 
 ![Config-Jira-AdminProjetoConfigurarWorkflowTransition-01.png](printscreen/Config-Jira-AdminProjetoConfigurarWorkflowTransition-01.png)
 ![Config-Jira-AdminProjetoConfigurarWorkflowTransitionConditions-01.png](printscreen/Config-Jira-AdminProjetoConfigurarWorkflowTransitionConditions-01.png)
