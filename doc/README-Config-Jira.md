@@ -11,8 +11,8 @@ Guia de Configuração da ferramenta Jira para o projeto [Jira RPA aaS](../READM
   * [Configurar Fluxo de Trabalho](#13-configurar-fluxo-de-trabalho-para-as-pendências-do-projeto)
   * [Configurar Campos Customizados](#14-configurar-campos-customizados-para-as-pendências-do-projeto)
   * [Configurar Telas](#15-configurar-telas-para-as-pendências-do-projeto)
-  * [Configurar Grupos de Usuários, Usuários e Esquemas de Permissão](#16%20configurar%20grupos%20de%20usuários-%20Usuários%20e%20Esquemas%20de%20permissão)
-  * [Configurar Condições das Transições](#17-configurar%20condições%20das%20transições%20do%20fluxo%20de%20trabalho%20vs%20grupo%20de%20usuários)
+  * [Configurar Grupos de Usuários, Usuários e Esquemas de Permissão](#16-configurar-grupos-de-usuários-usuários-e-esquemas-de-permissão)
+  * [Configurar Condições das Transições](#17-configurar-condições-das-transições-do-fluxo-de-trabalho-vs-grupo-de-usuários)
 
 ---
 
@@ -143,7 +143,7 @@ Guia de Configuração da ferramenta Jira para o projeto [Jira RPA aaS](../READM
 
 | Nome do campo              | Telas                                                           |
 | -------------------------- | --------------------------------------------------------------- |
-| `Acompanhamento de Horas`, `Anexos`, `Data Cancelamento`, `Data Concluido`, `Data Falha`, `Data Submetido`, `Pendências Linkadas`, `Prioridade`, `Qtde Submetido`, `Responsável`, `Resumo`, `Rótulos`, `Solicitante`, `Tipo de Item` | * `RPA: Tela de Item Padrão para Desenvolvimento de Software`  * `RPA: Tela de Item Padrão para Desenvolvimento de Software (Ver)` |
+| `Acompanhamento de Horas`, `Anexos`, `Data Cancelamento`, `Data Concluido`, `Data Falha`, `Data Submetido`, `Pendências Linkadas`, `Prioridade`, `Qtde Submetido`, `Responsável`, `Resumo`, `Rótulos`, `Solicitante`, `Tipo de Item` | `RPA: Tela de Item Padrão para Desenvolvimento de Software` e `RPA: Tela de Item Padrão para Desenvolvimento de Software (Ver)` |
 | `Comentário`                 | _Renderers_                                                     |
 | `Descrição`                  | _Renderers_                                                     |
 | `Resolução`                  | _Resolve Issue Screen_                                          |
