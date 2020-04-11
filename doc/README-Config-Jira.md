@@ -13,6 +13,10 @@ Guia de Configuração da ferramenta Jira para o projeto [Jira RPA aaS](../READM
   * [Configurar Telas](#15-configurar-telas-para-as-pendências-do-projeto)
   * [Configurar Grupos de Usuários, Usuários e Esquemas de Permissão](#16-configurar-grupos-de-usuários-usuários-e-esquemas-de-permissão)
   * [Configurar Condições das Transições](#17-configurar-condições-das-transições-do-fluxo-de-trabalho-vs-grupo-de-usuários)
+  * [Configurar Condições das Transições](#17-configurar-condições-das-transições-do-fluxo-de-trabalho-vs-grupo-de-usuários)
+  * [Configurar Funções de Post](#18-configurar-funções-de-post)
+    * [Configurar Funções de Post](#181-incrementar-contador-qtde-submetido)
+* [Referências](#2-references)
 
 ---
 
@@ -302,7 +306,7 @@ Guia de Configuração da ferramenta Jira para o projeto [Jira RPA aaS](../READM
 
 * Agora você vai realizar as configurações `Grupo` para cada uma das `Transições` conforme a tabela de configuração informada abaixo. Para tal siga os passos:
   * Na página de edição do Diagrama, você ira clicar em **cada uma das linhas** que representam as transições e em seguida no link `Condições`
-  * Na página de edição das condições das `Transações` de **cada uma das transações** 
+  * Na página de edição das condições das `Transições` de **cada uma das Transições** 
     * Adicionar a condição `O usuário está no grupo`
       * Grupo: `rpa-users` ou `rpa-administrators` conforme a tabela de configurações abaixo
     * Clicar no botão de  `Publicar` o fluxo de trabalho
@@ -322,6 +326,68 @@ Guia de Configuração da ferramenta Jira para o projeto [Jira RPA aaS](../READM
 ![Config-Jira-AdminProjetoConfigurarWorkflowTransitionConditions-03.png](printscreen/Config-Jira-AdminProjetoConfigurarWorkflowTransitionConditions-03.png)
 ![Config-Jira-AdminProjetoConfigurarWorkflowTransitionConditions-04.png](printscreen/Config-Jira-AdminProjetoConfigurarWorkflowTransitionConditions-04.png)
 ![Config-Jira-AdminProjetoConfigurarWorkflowTransitionConditions-05.png](printscreen/Config-Jira-AdminProjetoConfigurarWorkflowTransitionConditions-05.png)
+
+
+---
+
+## 1.8. Configurar Funções de Post
+
+## 1.8.1. Incrementar Contador Qtde Submetido
+
+* No menu superior principal clique no link do item de menu `Administração >> Projetos`
+  * Na página de `Administração` na aba `Projetos` clicar no link com o nome do projeto `RPA`
+
+![Config-Jira-AdminProjetoListarProjetos-01.png](printscreen/Config-Jira-AdminProjetoListarProjetos-01.png)
+
+* Na página de `Configurações do Projeto` clicar no item do sub-menu `Fluxos de Trabalho`
+
+![Config-Jira-AdminProjetoConfigurarWorkflow-01.png](printscreen/Config-Jira-AdminProjetoConfigurarWorkflow-01.png)
+  
+* Na página `Fluxos de Trabalho` de `Configurações do Projeto` localizar a linha da configuração `Software Simplified Workflow for Project RPA` e clicar no ícone de lápis nas `Ações`
+
+![Config-Jira-AdminProjetoConfigurarWorkflow-02.png](printscreen/Config-Jira-AdminProjetoConfigurarWorkflow-02.png)
+
+* Na página edição do `Fluxos de Trabalho` `Software Simplified Workflow for Project RPA` de `Configurações do Projeto` clicar no botão `Diagrama` para mostrar o modo de visualização do diagrama o que facilita as alterações
+  * Se você fez tudo certo Então o seu Workflow deve ficar assim:
+  
+![StateDiagram%20-%20Context.png](./StateDiagram%20-%20Context.png)
+
+* Agora você vai realizar as configurações `Funções de Post` para cada uma das `Transições` conforme a tabela de configuração informada abaixo. Para tal siga os passos:
+  * Na página de edição do Diagrama, você ira clicar em **cada uma das linhas** que representam as transições e em seguida no link `Funções de Post`
+  * Na página de edição das funções de post das `Transições` de **cada uma das Transições** clique no link `Adicionar Post Function` 
+    * Adicionar a função de post `Script Post-Function [ScriptRunner]`
+      * Clicar na opção `Custom script post-function`
+	  * Escreva o script
+
+| Transição   | Status de   | Status para | Post Function(s)       |
+| ----------- | ----------- | ----------- | ---------------------- |
+| `Submeter`  | `EM EDIÇÃO` | `SUBMETIDO` | in-line script         |
+
+```groovy
+IssueManager issueManager = ComponentAccessor.getIssueManager()
+CustomFieldManager customFieldManager = ComponentAccessor.getCustomFieldManager()
+CustomField cf = customFieldManager.getCustomFieldObject("customfield_13502")
+def val = issue.getCustomFieldValue(cf) as Integer
+
+if (val)
+val = val + 1
+else
+val = 1
+issue.setCustomFieldValue(cf, val)
+```
+
+![Config-Jira-AdminProjetoConfigurarWorkflowTransitionPostFunction-01.png](printscreen/Config-Jira-AdminProjetoConfigurarWorkflowTransitionPostFunction-01.png)
+![Config-Jira-AdminProjetoConfigurarWorkflowTransitionPostFunction-02.png](printscreen/Config-Jira-AdminProjetoConfigurarWorkflowTransitionPostFunction-02.png)
+![Config-Jira-AdminProjetoConfigurarWorkflowTransitionPostFunction-03.png](printscreen/Config-Jira-AdminProjetoConfigurarWorkflowTransitionPostFunction-03.png)
+![Config-Jira-AdminProjetoConfigurarWorkflowTransitionPostFunction-04.png](printscreen/Config-Jira-AdminProjetoConfigurarWorkflowTransitionPostFunction-04.png)
+![Config-Jira-AdminProjetoConfigurarWorkflowTransitionPostFunction-05.png](printscreen/Config-Jira-AdminProjetoConfigurarWorkflowTransitionPostFunction-05.png)
+
+
+---
+
+# 2. Referências
+
+* [Post Function Increment Counter](https://community.atlassian.com/t5/Jira-questions/Post-Function-Increment-Counter/qaq-p/1229941)
 
 ---
 
