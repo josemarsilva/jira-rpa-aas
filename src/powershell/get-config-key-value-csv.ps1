@@ -1,6 +1,6 @@
 ﻿# #############################################################################
 # filename   : get-config-key-value-csv.ps1
-# description: Powrshell sample of get config key values from (.csv)
+# description: PowerShell sample of get config key values from (.csv)
 # source-code: https://github.com/josemarsilva/jira-rpa-aas
 # references :
 #              * https://adamtheautomator.com/powershell-import-csv-foreach/

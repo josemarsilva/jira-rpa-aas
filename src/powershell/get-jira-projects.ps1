@@ -9,6 +9,8 @@
 # #############################################################################
 #
 
+# Setup ...
+
 # Header ...
 $user = "admin"
 $password = "admin"
@@ -17,16 +19,15 @@ $bytes = [System.Text.Encoding]::ASCII.GetBytes($pair)
 $base64 = [System.Convert]::ToBase64String($bytes)
 $basicAuthValue = "Basic $base64"
 $headers = @{ Authorization = $basicAuthValue }
-
 # Content Type ....
 $contentType = "application/json"
-
 # Url ...
 $url = 'http://localhost:8080/rest/api/2/issue/createmeta'
 
 # Invoke Rest ...
 $response = Invoke-RestMethod $url -Headers $headers -contenttype $contentType
 
+# Show response ...
 $response.projects | Select-Object id, key, name
 
 
