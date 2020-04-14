@@ -43,8 +43,8 @@ $response = Invoke-RestMethod $url -Headers $headers -contenttype $contentType -
 $response.issues | Select-Object id, key, self | ConvertTo-Csv -NoTypeInformation -Delimiter ';' | Out-File issues.tmp
 
 # Process issues ...
-$scriptProcess = ".\rpa-aas-process.ps1"
-Invoke-Expression $scriptProcess
+# $scriptProcess = ".\rpa-aas-process.ps1"
+# Invoke-Expression $scriptProcess
 
 Write-Host
 Write-Host "Finishing 'rpa-aas-get.ps1'."
