@@ -27,6 +27,11 @@ Este repositório contém os componentes do projeto **jira-rpa-aas**. A soluçã
 
 ### 2. Documentação
 
+### Introdução
+
+![BusinessDiagram-Context](doc/BusinessDiagram%20-%20Context.png)
+
+
 ### 2.1. Diagrama de Caso de Uso (Use Case Diagram)
 ### 2.1.1. Diagrama de Contexto
 
