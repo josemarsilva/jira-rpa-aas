@@ -16,6 +16,7 @@
 Write-Host
 Write-Host "Starting 'rpa-aas-process.ps1' ..."
 Write-Host
+$logFileRpaAasProcess = "rpa-aas-process.log"
 
 # Loading (key,value) ...
 $configKeyValueCsvFile = "config-key-value.csv"
@@ -28,11 +29,10 @@ $jiraIssuesStatusName  = ( $objConfigKeyValue | Where-Object key -eq "jira-issue
 $processWorkerCmd      = ( $objConfigKeyValue | Where-Object key -eq "process-worker-cmd"        | Select-Object value )[0].value
 $tmpFileIssuesCsv      = ( $objConfigKeyValue | Where-Object key -eq "tmp-file-issues"           | Select-Object value )[0].value
 $tmpFileProcessWorker  = ( $objConfigKeyValue | Where-Object key -eq "tmp-file-process-worker"   | Select-Object value )[0].value
-$tmpFileIssuesUpdate   = ( $objConfigKeyValue | Where-Object key -eq "tmp-file-issues-update"    | Select-Object value )[0].value
+Add-Content $logFileRpaAasProcess ( ( Get-date -f ('yyyy-MM-dd HH:mm:ss').toString() ) + " " + "User/Password/ProjectKey: " + $user + "/" + $password + "/" + $password + "/" + $jiraProjectKey)
 
 # Clean Temporary Files ...
 if (Test-Path $tmpFileProcessWorker) { Remove-Item $tmpFileProcessWorker }
-if (Test-Path $tmpFileIssuesUpdate)  { Remove-Item $tmpFileIssuesUpdate }
 
 # Header, ContentType, Url ...
 $user = "admin"
@@ -58,6 +58,7 @@ $objIssues | ForEach-Object {
     $issueKey = $_.key
     $issueSelfUrl = $_.self
     Write-Host( "  + Issue(id,key): (" + $issueId + ", " + $issueKey + ")" )
+    Add-Content $logFileRpaAasProcess ( ( Get-date -f ('yyyy-MM-dd HH:mm:ss').toString() ) + " " + "IssueId/IssueKey/IssueUrl: " + $issueId + "/" + $issueKey + "/" + $issueSelfUrl )
 
     # Get issue transitions availables ...
     Write-Host( "    - Get issue transitions")
@@ -77,12 +78,22 @@ $objIssues | ForEach-Object {
     } else { 
         $transitionIdFalhar   = $objTransitionFalhar[0].id.ToString()
     }
+    Add-Content $logFileRpaAasProcess ( ( Get-date -f ('yyyy-MM-dd HH:mm:ss').toString() ) + " " + "transitionIdConcluir/transitionIdFalhar: " + $transitionIdConcluir + "/" + $transitionIdFalhar )
 
-    # Transitions not failed ?
+    # Are Transitions desired ( Concluir, Falhar ) available?
     if ($transitionIdConcluir -ne "" -and $transitionIdFalhar -ne "" ) {
 
+        # Add Comment calling process worker ...
+        $url = $issueSelfUrl + "/comment"
+        $postData = '{ "body": "rpa-aas-process.ps1 is calling ' + $processWorkerCmd.Replace('\','\\') + '" }'
+        $curlCmd = ( 'curl -s -D- -u ' + $user + ':' + $password + ' -X POST -H "Content-Type: application/json" ' + ' --data "' + $postData.Replace('"','\"') + '" ' + ' ' + $url )
+        Add-Content $logFileRpaAasProcess ( ( Get-date -f ('yyyy-MM-dd HH:mm:ss').toString() ) + " " + "curlCmd: " + $curlCmd )
+        $curlCmdResult = cmd.exe /c ( $curlCmd )
+        Add-Content $logFileRpaAasProcess ( ( Get-date -f ('yyyy-MM-dd HH:mm:ss').toString() ) + " " + "curlCmdResult: " + $curlCmdResult )
+
         # Call process worker ...
-        Write-Host( "    - Call process worker ..." )
+        Write-Host( "    - Call process worker" )
+        Add-Content $logFileRpaAasProcess ( ( Get-date -f ('yyyy-MM-dd HH:mm:ss').toString() ) + " " + "processWorkerCmd/issueId/issueKey: " + $processWorkerCmd + "/" + $issueId + "/" + $issueKey )
         cmd.exe /c ( $processWorkerCmd + " " + $issueId + " " + $issueKey ) | Out-File $tmpFileProcessWorker
 
         # Get results of process worker ...
@@ -98,31 +109,32 @@ $objIssues | ForEach-Object {
         } else {
             $packageZip = $packageZip.Line.Replace("<package-zip>","").Replace("</package-zip>","").Replace(" ","")
         }
+        Add-Content $logFileRpaAasProcess ( ( Get-date -f ('yyyy-MM-dd HH:mm:ss').toString() ) + " " + "status/packageZip: " + $status + "/" + $packageZip )
 
         # Set transitionId according to results of process worker ...
         $transitionId = ""
         $transitionId = $transitionIdFalhar
-        if ($status -eq "" ) {
+        if ($status -eq "SUCESSO" ) {
             $transitionId = $transitionIdConcluir
         }
 
+        # Add Comment result process worker ...
+        $url = $issueSelfUrl + "/comment"
+        $postData = '{ "body": "' + $processWorkerCmd.Replace('\','\\') + ' result ' + $status + '" }'
+        $curlCmd = ( 'curl -s -D- -u ' + $user + ':' + $password + ' -X POST -H "Content-Type: application/json" ' + ' --data "' + $postData.Replace('"','\"') + '" ' + ' ' + $url )
+        Add-Content $logFileRpaAasProcess ( ( Get-date -f ('yyyy-MM-dd HH:mm:ss').toString() ) + " " + "curlCmd: " + $curlCmd )
+        $curlCmdResult = cmd.exe /c ( $curlCmd )
+        Add-Content $logFileRpaAasProcess ( ( Get-date -f ('yyyy-MM-dd HH:mm:ss').toString() ) + " " + "curlCmdResult: " + $curlCmdResult )
 
-        # Update issue transition (new status) ...
+        # Update issue transition ...
         if ( $transitionId -ne "" ) {
-            Write-Host( "    - Update issue transition (new status)")
+            Write-Host( "    - Update issue transition")
             $url = $issueSelfUrl + "/transitions"
-            $postData = '{ "transition": {"id": ' +  $transitionId + ' },  "update": { "comment": [ { "add": {  "body": "rpa-aas-process.ps1 is updating process-worker.bat results!" } } ] } }'
+            $postData = '{ "transition": {"id": ' +  $transitionId + ' } }'
             $curlCmd = ( 'curl -s -D- -u ' + $user + ':' + $password + ' -X POST -H "Content-Type: application/json" ' + ' --data "' + $postData.Replace('"','\"') + '" ' + ' ' + $url )
-            Add-Content $tmpFileIssuesUpdate ""
-            Add-Content $tmpFileIssuesUpdate ( "issueId:" + $issueId  + ", issueKey: " + $issueKey + ", issueSelfUrl" + $issueSelfUrl)
-            Add-Content $tmpFileIssuesUpdate ""
-            Add-Content $tmpFileIssuesUpdate $curlCmd
-            Add-Content $tmpFileIssuesUpdate ""
+            Add-Content $logFileRpaAasProcess ( ( Get-date -f ('yyyy-MM-dd HH:mm:ss').toString() ) + " " + "curlCmd: " + $curlCmd )
             $curlCmdResult = cmd.exe /c ( $curlCmd )
-            Add-Content $tmpFileIssuesUpdate $curlCmdResult
-            Add-Content $tmpFileIssuesUpdate ""
-
-
+            Add-Content $logFileRpaAasProcess ( ( Get-date -f ('yyyy-MM-dd HH:mm:ss').toString() ) + " " + "curlCmdResult: " + $curlCmdResult )
     }
 
 
