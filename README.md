@@ -31,7 +31,10 @@ Este repositório contém os componentes do projeto **jira-rpa-aas**. A soluçã
 
 ### 2.1. Introdução
 
-Contexto do serviço para atender às necessidades de negócio:
+O contexto de negócio resolvido por este projeto é:
+* Permitir que os `Solicitantes` submetam arquivos com os _input's_ do processamento
+* O `Executor` receba os arquivos de _input's_ e realize o processamento
+* E por fim, o `Executor` atualize as informações com o resultado do processamento
 
 ![BusinessDiagram-Context](doc/BusinessDiagram%20-%20Context.png)
 
