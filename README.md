@@ -11,9 +11,11 @@ Este repositório contém os componentes do projeto **jira-rpa-aas**. A soluçã
 ### 1.1. Índice
 
 * [Documentação](#2-documentação)
-  * [Diagrama de Caso de Uso](#21-diagrama-de-caso-de-uso-use-case-diagram)
-  * [Diagrama de Implantação](#22-diagrama-de-implantação-deploy-diagram)
-  * [Diagrama de Estados e Transições](#23-diagrama-de-estados-e-transições-state-diagram)
+  * [Introdução](#21-introdução)
+  * [Diagrama de Caso de Uso](#22-diagrama-de-caso-de-uso-use-case-diagram)
+  * [Diagrama de Implantação](#23-diagrama-de-implantação-deploy-diagram)
+  * [Diagrama de Estados e Transições](#24-diagrama-de-estados-e-transições-state-diagram)
+  * [Requisitos](#25-requisitos)
 * Projeto
   * [Pré-Requisitos](#31-pré-requisitos)
   * [Guia para Desenvolvimento](#32-guia-para-desenvolvimento)
@@ -27,27 +29,29 @@ Este repositório contém os componentes do projeto **jira-rpa-aas**. A soluçã
 
 ### 2. Documentação
 
-### Introdução
+### 2.1. Introdução
+
+Contexto do serviço para atender às necessidades de negócio:
 
 ![BusinessDiagram-Context](doc/BusinessDiagram%20-%20Context.png)
 
 
-### 2.1. Diagrama de Caso de Uso (Use Case Diagram)
-### 2.1.1. Diagrama de Contexto
+### 2.2. Diagrama de Caso de Uso (Use Case Diagram)
+### 2.2.1. Diagrama de Contexto
 
 O diagrama de Caso de Uso com **Contexto - Jira RPA aaS** do projeto, apresenta as principais **funcionalidades** do projeto, as **entradas** e **saídas** e as **entidades** que interagem com a solução.
 
 ![UseCaseDiagram-Context](doc/UseCaseDiagram%20-%20Context.png)
 
-### 2.2. Diagrama de Implantação (Deploy Diagram)
-### 2.2.2. Diagrama de Contexto
+### 2.3. Diagrama de Implantação (Deploy Diagram)
+### 2.3.2. Diagrama de Contexto
 
 O diagrama de Implantação com **Contexto - Jira RPA aaS** do projeto, apresenta as principais **componentes**, **nós** e **comunicações** da solução.
 
 ![DeployDiagram-Context](doc/DeployDiagram%20-%20Context.png)
 
-### 2.3. Diagrama de Estados e Transições (State Diagram)
-### 2.2.3. Diagrama de Contexto
+### 2.4. Diagrama de Estados e Transições (State Diagram)
+### 2.4.3. Diagrama de Contexto
 
 O diagrama de Estados e Transições com **Contexto - Jira RPA aaS** do projeto, apresenta os principais **estados** e **transições** da solução.
 
