@@ -277,10 +277,10 @@ Guia de Configuração da ferramenta Jira para o projeto [Jira RPA aaS](../READM
 * Na página de `Administração` na aba `Gerenciamento de Grupos` na aba `Grupos` clicar em `Adicionar Grupo`
     * Adicionar as seguintes configurações:
 
-| Nome do Grupo        | Membros do Grupo |
-| -------------------- | ---------------- |
-| `rpa-administrators` | `user`, `admin`  |
-| `rpa-users`          | `user`           |
+| Nome do Grupo        | Membros do Grupo                 |
+| -------------------- | -------------------------------- |
+| `rpa-users`          | `user`, `user-rpa-aas`, `admin`  |
+| `rpa-aas-users`      | `user-rpa-aas`, `admin`          |
 
 ---
 
@@ -312,13 +312,15 @@ Guia de Configuração da ferramenta Jira para o projeto [Jira RPA aaS](../READM
     * Clicar no botão de  `Publicar` o fluxo de trabalho
       * Escolher a opção `Não` para a pergunta `Salvar Cópia do Backup` e confirmar no botão `Publicar`
 
-| Transição   | Status de   | Status para | Grupo(s)             |
-| ----------- | ----------- | ----------- | -------------------- |
-| `Submeter`  | `EM EDIÇÃO` | `SUBMETIDO` | `rpa-users`          |
-| `Concluir`  | `SUBMETIDO` | `CONCLUÍDO` | `rpa-administrators` |
-| `Falhar`    | `SUBMETIDO` | `FALHA`     | `rpa-administrators` |
-| `Editar`    | `FALHA`     | `EM EDIÇÃO` | `rpa-users`          |
-| `Cancelar`  | _todos_     | `CANCELADO` | `rpa-users`          |
+| Transição   | Status de   | Status para | Grupo(s)                               |
+| ----------- | ----------- | ----------- | -------------------------------------- |
+| `Submeter`  | `EM EDIÇÃO` | `SUBMETIDO` | `rpa-users`                            |
+| `Concluir`  | `SUBMETIDO` | `CONCLUÍDO` | `rpa-aas-users`                        |
+| `Falhar`    | `SUBMETIDO` | `FALHA`     | `rpa-aas-users`                        |
+| `Editar`    | `FALHA`     | `EM EDIÇÃO` | `rpa-users`                            |
+| `Cancelar`  | _todos_     | `CANCELADO` | `rpa-users`                            |
+
+PS: a primeira transição de criação não precisa ser configurada
 
 ![Config-Jira-AdminProjetoConfigurarWorkflowTransition-01.png](printscreen/Config-Jira-AdminProjetoConfigurarWorkflowTransition-01.png)
 ![Config-Jira-AdminProjetoConfigurarWorkflowTransitionConditions-01.png](printscreen/Config-Jira-AdminProjetoConfigurarWorkflowTransitionConditions-01.png)
