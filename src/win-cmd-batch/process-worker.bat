@@ -3,8 +3,10 @@ ECHO.
 ECHO Starting 'process-worker.bat' ...
 ECHO.
 ECHO   Arg's: %1 %2 %3 %4 %5 %6 %7 %8
-ECHO   Data : %DATE%
-ECHO   Hora : %TIME%
+ECHO   IssueId : %1
+ECHO   IssueKey: %2
+ECHO   Data    : %DATE%
+ECHO   Hora    : %TIME%
 ECHO.
 ECHO ^<status^>FAIL^</status^>
 ECHO ^<status-message^>Falha^</status-message^>
