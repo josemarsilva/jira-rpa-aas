@@ -21,22 +21,21 @@ $logFileRpaAasProcess = "rpa-aas-process.log"
 # Loading (key,value) ...
 $configKeyValueCsvFile = "config-key-value.csv"
 $objConfigKeyValue = Import-Csv $configKeyValueCsvFile -Delimiter ";" 
-$user                  = ( $objConfigKeyValue | Where-Object key -eq "user"                      | Select-Object value )[0].value
-$password              = ( $objConfigKeyValue | Where-Object key -eq "password"                  | Select-Object value )[0].value
-$jiraProjectKey        = ( $objConfigKeyValue | Where-Object key -eq "jira-project-key"          | Select-Object value )[0].value
-$jiraIssuesCountPerGet = ( $objConfigKeyValue | Where-Object key -eq "jira-issues-count-per-get" | Select-Object value )[0].value
-$jiraIssuesStatusName  = ( $objConfigKeyValue | Where-Object key -eq "jira-issues-status-name"   | Select-Object value )[0].value
-$processWorkerCmd      = ( $objConfigKeyValue | Where-Object key -eq "process-worker-cmd"        | Select-Object value )[0].value
-$tmpFileIssuesCsv      = ( $objConfigKeyValue | Where-Object key -eq "tmp-file-issues"           | Select-Object value )[0].value
-$tmpFileProcessWorker  = ( $objConfigKeyValue | Where-Object key -eq "tmp-file-process-worker"   | Select-Object value )[0].value
+$user                        = ( $objConfigKeyValue | Where-Object key -eq "user"                           | Select-Object value )[0].value
+$password                    = ( $objConfigKeyValue | Where-Object key -eq "password"                       | Select-Object value )[0].value
+$jiraProjectKey              = ( $objConfigKeyValue | Where-Object key -eq "jira-project-key"               | Select-Object value )[0].value
+$jiraIssuesCountPerGet       = ( $objConfigKeyValue | Where-Object key -eq "jira-issues-count-per-get"      | Select-Object value )[0].value
+$jiraIssuesStatusName        = ( $objConfigKeyValue | Where-Object key -eq "jira-issues-status-name"        | Select-Object value )[0].value
+$processWorkerCmd            = ( $objConfigKeyValue | Where-Object key -eq "process-worker-cmd"             | Select-Object value )[0].value
+$tmpFileIssuesCsv            = ( $objConfigKeyValue | Where-Object key -eq "tmp-file-issues"                | Select-Object value )[0].value
+$tmpFileProcessWorker        = ( $objConfigKeyValue | Where-Object key -eq "tmp-file-process-worker"        | Select-Object value )[0].value
+$processWorkerFailureMessage = ( $objConfigKeyValue | Where-Object key -eq "process-worker-failure-message" | Select-Object value )[0].value
 Add-Content $logFileRpaAasProcess ( ( Get-date -f ('yyyy-MM-dd HH:mm:ss').toString() ) + " " + "User/Password/ProjectKey: " + $user + "/" + $password + "/" + $password + "/" + $jiraProjectKey)
 
 # Clean Temporary Files ...
 if (Test-Path $tmpFileProcessWorker) { Remove-Item $tmpFileProcessWorker }
 
 # Header, ContentType, Url ...
-$user = "admin"
-$password = "admin"
 $pair = "${user}:${password}"
 $bytes = [System.Text.Encoding]::ASCII.GetBytes($pair)
 $base64 = [System.Convert]::ToBase64String($bytes)
@@ -80,7 +79,7 @@ $objIssues | ForEach-Object {
     }
     Add-Content $logFileRpaAasProcess ( ( Get-date -f ('yyyy-MM-dd HH:mm:ss').toString() ) + " " + "transitionIdConcluir/transitionIdFalhar: " + $transitionIdConcluir + "/" + $transitionIdFalhar )
 
-    # Are Transitions desired ( Concluir, Falhar ) available?
+    # Are Transitions desired available?
     if ($transitionIdConcluir -ne "" -and $transitionIdFalhar -ne "" ) {
 
         # Add Comment calling process worker ...
@@ -103,6 +102,12 @@ $objIssues | ForEach-Object {
         } else {
             $status = $status.Line.Replace("<status>","").Replace("</status>","").Replace(" ","")
         }
+        $statusMessage = Select-String -Path $tmpFileProcessWorker -Pattern "(<status-message>).*(</status-message)" | Select-Object -First 1 line
+        if ($statusMessage -eq $null -or $statusMessage -eq "null") {
+            $statusMessage = ""
+        } else {
+            $statusMessage = $statusMessage.Line.Replace("<status-message>","").Replace("</status-message>","")
+        }
         $packageZip = Select-String -Path $tmpFileProcessWorker -Pattern "(<package-zip>).*(</package-zip)" | Select-Object -First 1 line
         if ($packageZip -eq $null) {
             $packageZip = ""
@@ -120,11 +125,37 @@ $objIssues | ForEach-Object {
 
         # Add Comment result process worker ...
         $url = $issueSelfUrl + "/comment"
-        $postData = '{ "body": "' + $processWorkerCmd.Replace('\','\\') + ' result ' + $status + '" }'
+        $postData = '{ "body": "' + $processWorkerCmd.Replace('\','\\') + ' result ' + $status + ' ' + $statusMessage + '" }'
         $curlCmd = ( 'curl -s -D- -u ' + $user + ':' + $password + ' -X POST -H "Content-Type: application/json" ' + ' --data "' + $postData.Replace('"','\"') + '" ' + ' ' + $url )
         Add-Content $logFileRpaAasProcess ( ( Get-date -f ('yyyy-MM-dd HH:mm:ss').toString() ) + " " + "curlCmd: " + $curlCmd )
         $curlCmdResult = cmd.exe /c ( $curlCmd )
         Add-Content $logFileRpaAasProcess ( ( Get-date -f ('yyyy-MM-dd HH:mm:ss').toString() ) + " " + "curlCmdResult: " + $curlCmdResult )
+
+        # Attach result log ...
+        $url = $issueSelfUrl + "/attachments"
+        $curlCmd = ( 'curl -s -D- -u ' + $user + ':' + $password + ' -X POST -H "X-Atlassian-Token: nocheck" ' + ' -F "file=@process-worker.tmp"' + ' ' + $url )
+        Add-Content $logFileRpaAasProcess ( ( Get-date -f ('yyyy-MM-dd HH:mm:ss').toString() ) + " " + "curlCmd: " + $curlCmd )
+        $curlCmdResult = cmd.exe /c ( $curlCmd )
+        Add-Content $logFileRpaAasProcess ( ( Get-date -f ('yyyy-MM-dd HH:mm:ss').toString() ) + " " + "curlCmdResult: " + $curlCmdResult )
+
+        # Attach result package zip ...
+        if ( $packageZip -ne "") {
+            $url = $issueSelfUrl + "/attachments"
+            $curlCmd = ( 'curl -s -D- -u ' + $user + ':' + $password + ' -X POST -H "X-Atlassian-Token: nocheck" ' + ' -F "file=@' + $packageZip + '"' + ' ' + $url )
+            Add-Content $logFileRpaAasProcess ( ( Get-date -f ('yyyy-MM-dd HH:mm:ss').toString() ) + " " + "curlCmd: " + $curlCmd )
+            $curlCmdResult = cmd.exe /c ( $curlCmd )
+            Add-Content $logFileRpaAasProcess ( ( Get-date -f ('yyyy-MM-dd HH:mm:ss').toString() ) + " " + "curlCmdResult: " + $curlCmdResult )
+        } # ... Attach result package zip
+
+        # Add Comment process worker failure message ...
+            if ( $transitionId -eq $transitionIdFalhar ) {
+            $url = $issueSelfUrl + "/comment"
+            $postData = '{ "body": "' + $processWorkerFailureMessage + '" }'
+            $curlCmd = ( 'curl -s -D- -u ' + $user + ':' + $password + ' -X POST -H "Content-Type: application/json" ' + ' --data "' + $postData.Replace('"','\"') + '" ' + ' ' + $url )
+            Add-Content $logFileRpaAasProcess ( ( Get-date -f ('yyyy-MM-dd HH:mm:ss').toString() ) + " " + "curlCmd: " + $curlCmd )
+            $curlCmdResult = cmd.exe /c ( $curlCmd )
+            Add-Content $logFileRpaAasProcess ( ( Get-date -f ('yyyy-MM-dd HH:mm:ss').toString() ) + " " + "curlCmdResult: " + $curlCmdResult )
+        }
 
         # Update issue transition ...
         if ( $transitionId -ne "" ) {
@@ -135,12 +166,11 @@ $objIssues | ForEach-Object {
             Add-Content $logFileRpaAasProcess ( ( Get-date -f ('yyyy-MM-dd HH:mm:ss').toString() ) + " " + "curlCmd: " + $curlCmd )
             $curlCmdResult = cmd.exe /c ( $curlCmd )
             Add-Content $logFileRpaAasProcess ( ( Get-date -f ('yyyy-MM-dd HH:mm:ss').toString() ) + " " + "curlCmdResult: " + $curlCmdResult )
-    }
+        }
 
+    } # ... Are Transitions desired available?
 
-    }
-
-}
+} # ... Iterates Issues.
 
 Write-Host
 Write-Host "Finishing 'rpa-aas-process.ps1'."
