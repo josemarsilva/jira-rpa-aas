@@ -16,8 +16,7 @@
 #
 
 Write-Host
-Write-Host "Starting 'rpa-aas-get.ps1' ..."
-Write-Host
+Write-Host "Starting 'rpa-aas-get.ps1'"
 
 # Loading (key,value) ...
 $configKeyValueCsvFile = "config-key-value.csv"
@@ -51,6 +50,5 @@ $response.issues | Select-Object id, key, self | ConvertTo-Csv -NoTypeInformatio
 # $scriptProcess = ".\rpa-aas-process.ps1"
 # Invoke-Expression $scriptProcess
 
-Write-Host
-Write-Host "Finishing 'rpa-aas-get.ps1'."
+Write-Host "Finishing 'rpa-aas-get.ps1'"
 Write-Host

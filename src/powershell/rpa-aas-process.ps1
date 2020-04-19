@@ -16,7 +16,6 @@
 
 Write-Host
 Write-Host "Starting 'rpa-aas-process.ps1' ..."
-Write-Host
 $logFileRpaAasProcess = "rpa-aas-process.log"
 
 # Loading (key,value) ...
@@ -91,13 +90,26 @@ $objIssues | ForEach-Object {
         # Add Comment calling process worker ...
         $url = $issueSelfUrl + "/comment"
         $postData = '{ "body": "rpa-aas-process.ps1 is calling ' + $processWorkerCmd.Replace('\','\\') + '" }'
+
+        # Get issue attachments  ...
+        Write-Host( "    + Get issue attachments")
+        $url = $issueSelfUrl
+        $method = "Get"
+        $response = Invoke-RestMethod $url -Headers $headers -contenttype $contentTypeApplicationJson -Method $method
+        if ($response.fields -ne $null) {
+            if ($response.fields.attachment -ne $null) {
+                $objIssueAttachments = ( $response.fields.attachment | Select-Object id, filename, content )
+                # Iterate issue attachments ...
+                $objIssueAttachments | ForEach-Object {
+                    # Iterator ...
+                    $issueAttachmentId = $_.id 
+                    $issueAttachmentFilename = $_.filename
+                    $issueAttachmentContent = $_.content
+                    Write-Host( "      - attachment(id, filename): (" + $issueAttachmentId + ", " + $issueAttachmentFilename + ")" )
+                } # Iterate issue attachments.
+            }
+        }
         
-        # begin deprecate ...
-        # $curlCmd = ( 'curl -s -D- -u ' + $user + ':' + $password + ' -X POST -H "Content-Type: application/json" ' + ' --data "' + $postData.Replace('"','\"') + '" ' + ' ' + $url )
-        # Add-Content $logFileRpaAasProcess ( ( Get-date -f ('yyyy-MM-dd HH:mm:ss').toString() ) + " " + "curlCmd: " + $curlCmd )
-        # $curlCmdResult = cmd.exe /c ( $curlCmd )
-        # Add-Content $logFileRpaAasProcess ( ( Get-date -f ('yyyy-MM-dd HH:mm:ss').toString() ) + " " + "curlCmdResult: " + $curlCmdResult )
-        # end deprecate!
         $method = "Post"
         Add-Content $logFileRpaAasProcess ( ( Get-date -f ('yyyy-MM-dd HH:mm:ss').toString() ) + " " + "Invoke-RestMethod(url/contentType/method/Body): " + $url + " " + $contentTypeApplicationJson + " " + $method + " " + $postData )
         $response = Invoke-RestMethod $url -Headers $headers -contenttype $contentTypeApplicationJson -Method $method -Body $postData
@@ -139,12 +151,6 @@ $objIssues | ForEach-Object {
         # Add Comment result process worker ...
         $url = $issueSelfUrl + "/comment"
         $postData = '{ "body": "' + $processWorkerCmd.Replace('\','\\') + ' result ' + $status + ' ' + $statusMessage + '" }'
-        # begin deprecate ...
-        # $curlCmd = ( 'curl -s -D- -u ' + $user + ':' + $password + ' -X POST -H "Content-Type: application/json" ' + ' --data "' + $postData.Replace('"','\"') + '" ' + ' ' + $url )
-        # Add-Content $logFileRpaAasProcess ( ( Get-date -f ('yyyy-MM-dd HH:mm:ss').toString() ) + " " + "curlCmd: " + $curlCmd )
-        # $curlCmdResult = cmd.exe /c ( $curlCmd )
-        # Add-Content $logFileRpaAasProcess ( ( Get-date -f ('yyyy-MM-dd HH:mm:ss').toString() ) + " " + "curlCmdResult: " + $curlCmdResult )
-        # end deprecate.
         $method = "Post"
         Add-Content $logFileRpaAasProcess ( ( Get-date -f ('yyyy-MM-dd HH:mm:ss').toString() ) + " " + "Invoke-RestMethod(url/contentType/method/Body): " + $url + " " + $contentTypeApplicationJson + " " + $method + " " + $postData )
         $response = Invoke-RestMethod $url -Headers $headers -contenttype $contentTypeApplicationJson -Method $method -Body $postData
@@ -164,8 +170,6 @@ $objIssues | ForEach-Object {
         # Add-Content $logFileRpaAasProcess ( ( Get-date -f ('yyyy-MM-dd HH:mm:ss').toString() ) + " " + "response: " + $response )
         # end gave-up.
 
-
-
         # Attach result package zip ...
         if ( $packageZip -ne "") {
             $url = $issueSelfUrl + "/attachments"
@@ -179,17 +183,10 @@ $objIssues | ForEach-Object {
         if ( $transitionId -eq $transitionIdFalhar ) {
             $url = $issueSelfUrl + "/comment"
             $postData = '{ "body": "' + $processWorkerFailureMessage + '" }'
-            # begin deprecate ...
-            # $curlCmd = ( 'curl -s -D- -u ' + $user + ':' + $password + ' -X POST -H "Content-Type: application/json" ' + ' --data "' + $postData.Replace('"','\"') + '" ' + ' ' + $url )
-            # Add-Content $logFileRpaAasProcess ( ( Get-date -f ('yyyy-MM-dd HH:mm:ss').toString() ) + " " + "curlCmd: " + $curlCmd )
-            # $curlCmdResult = cmd.exe /c ( $curlCmd )
-            # Add-Content $logFileRpaAasProcess ( ( Get-date -f ('yyyy-MM-dd HH:mm:ss').toString() ) + " " + "curlCmdResult: " + $curlCmdResult )
-            # end deprecate.
             $method = "Post"
             Add-Content $logFileRpaAasProcess ( ( Get-date -f ('yyyy-MM-dd HH:mm:ss').toString() ) + " " + "Invoke-RestMethod(url/contentType/method/Body): " + $url + " " + $contentTypeApplicationJson + " " + $method + " " + $postData )
             $response = Invoke-RestMethod $url -Headers $headers -contenttype $contentTypeApplicationJson -Method $method -Body $postData
             Add-Content $logFileRpaAasProcess ( ( Get-date -f ('yyyy-MM-dd HH:mm:ss').toString() ) + " " + "response: " + $response )
-
         }
 
         # Update issue transition ...
@@ -207,6 +204,5 @@ $objIssues | ForEach-Object {
 
 } # ... Iterates Issues.
 
-Write-Host
 Write-Host "Finishing 'rpa-aas-process.ps1'."
 Write-Host
