@@ -1,5 +1,8 @@
 # User Custom - Not Git
 *.tmp
+*-tmp
+tmp-*
+*-tmp-*
 *.log
 /gitignore/
 

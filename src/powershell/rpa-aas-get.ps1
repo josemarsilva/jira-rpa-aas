@@ -45,6 +45,7 @@ $url = $urlProtocolHostnamePort + "/rest/api/2/search?jql=project=" + $jiraProje
 # Get Issues ...
 $response = Invoke-RestMethod $url -Headers $headers -contenttype $contentType -Method Get
 $response.issues | Select-Object id, key, self | ConvertTo-Csv -NoTypeInformation -Delimiter ';' | Out-File issues.tmp
+Get-Content -Path issues.tmp
 
 # Process issues ...
 # $scriptProcess = ".\rpa-aas-process.ps1"

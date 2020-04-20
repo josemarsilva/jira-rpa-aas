@@ -27,11 +27,16 @@ $jiraProjectKey              = ( $objConfigKeyValue | Where-Object key -eq "jira
 $jiraIssuesCountPerGet       = ( $objConfigKeyValue | Where-Object key -eq "jira-issues-count-per-get"      | Select-Object value )[0].value
 $jiraIssuesStatusName        = ( $objConfigKeyValue | Where-Object key -eq "jira-issues-status-name"        | Select-Object value )[0].value
 $processWorkerCmd            = ( $objConfigKeyValue | Where-Object key -eq "process-worker-cmd"             | Select-Object value )[0].value
+$processWorkerFailureMessage = ( $objConfigKeyValue | Where-Object key -eq "process-worker-failure-message" | Select-Object value )[0].value
 $tmpFileIssuesCsv            = ( $objConfigKeyValue | Where-Object key -eq "tmp-file-issues"                | Select-Object value )[0].value
 $tmpFileProcessWorker        = ( $objConfigKeyValue | Where-Object key -eq "tmp-file-process-worker"        | Select-Object value )[0].value
-$processWorkerFailureMessage = ( $objConfigKeyValue | Where-Object key -eq "process-worker-failure-message" | Select-Object value )[0].value
+$tmpFolderIssueAttachments   = ( $objConfigKeyValue | Where-Object key -eq "tmp-folder-issue-attachments"   | Select-Object value )[0].value
 Add-Content $logFileRpaAasProcess ( ( Get-date -f ('yyyy-MM-dd HH:mm:ss').toString() ) + " " + "User/Password/ProjectKey: " + $user + "/" + $password + "/" + $password + "/" + $jiraProjectKey)
 
+# Create issue attachments temporary folder ...
+if ( -Not (Test-Path -Path $tmpFolderIssueAttachments) ) {
+    New-Item -ItemType Directory -Force -Path $tmpFolderIssueAttachments
+}
 # Clean Temporary Files ...
 if (Test-Path $tmpFileProcessWorker) { Remove-Item $tmpFileProcessWorker }
 
@@ -47,7 +52,7 @@ $headersXAtlassianTokennocheck = @{ Authorization = $basicAuthValue
     'X-Atlassian-Token'='nocheck'
 }
 $contentTypeApplicationJson = "application/json"
-$contentTypeTextPlain = "text/plain"
+$contentTypeMultipartFormData = "multipart/form-data"
 $urlProtocolHostnamePort = 'http://localhost:8080'
 
 # Loading Issues  ...
@@ -90,7 +95,11 @@ $objIssues | ForEach-Object {
         # Add Comment calling process worker ...
         $url = $issueSelfUrl + "/comment"
         $postData = '{ "body": "rpa-aas-process.ps1 is calling ' + $processWorkerCmd.Replace('\','\\') + '" }'
-
+        $method = "Post"
+        Add-Content $logFileRpaAasProcess ( ( Get-date -f ('yyyy-MM-dd HH:mm:ss').toString() ) + " " + "Invoke-RestMethod(url/contentType/method/Body): " + $url + " " + $contentTypeApplicationJson + " " + $method + " " + $postData )
+        $response = Invoke-RestMethod $url -Headers $headers -contenttype $contentTypeApplicationJson -Method $method -Body $postData
+        Add-Content $logFileRpaAasProcess ( ( Get-date -f ('yyyy-MM-dd HH:mm:ss').toString() ) + " " + "response: " + $response )
+        
         # Get issue attachments  ...
         Write-Host( "    + Get issue attachments")
         $url = $issueSelfUrl
@@ -99,21 +108,29 @@ $objIssues | ForEach-Object {
         if ($response.fields -ne $null) {
             if ($response.fields.attachment -ne $null) {
                 $objIssueAttachments = ( $response.fields.attachment | Select-Object id, filename, content )
+                # Create issue attachments temporary folder ...
+                Add-Content $logFileRpaAasProcess ( ( Get-date -f ('yyyy-MM-dd HH:mm:ss').toString() ) + " " + "Attachments: " + $tmpFolderIssueAttachments + "\" + $issueId )
+                if ( -Not (Test-Path -Path ($tmpFolderIssueAttachments + "\" + $issueId) ) ) {
+                    New-Item -ItemType Directory -Force -Path ($tmpFolderIssueAttachments + "\" + $issueId) | Out-Null
+                }
+                # Initialize issue attachments temporary folder ...
+                Remove-Item -Path ($tmpFolderIssueAttachments + "\" + $issueId + "\*" )
                 # Iterate issue attachments ...
                 $objIssueAttachments | ForEach-Object {
                     # Iterator ...
                     $issueAttachmentId = $_.id 
                     $issueAttachmentFilename = $_.filename
                     $issueAttachmentContent = $_.content
-                    Write-Host( "      - attachment(id, filename): (" + $issueAttachmentId + ", " + $issueAttachmentFilename + ")" )
+                    Write-Host( "      - attachment(id, filename): ( " + $issueAttachmentId + ", " + $issueAttachmentFilename + " )" )
+                    Add-Content $logFileRpaAasProcess ( ( Get-date -f ('yyyy-MM-dd HH:mm:ss').toString() ) + " " + "Attachments(id,filename,content): " + $issueAttachmentId + ", " + $issueAttachmentFilename + ", " + $issueAttachmentContent )
+                    # Get attachment
+                    $url = $issueAttachmentContent
+                    $method = "Get"
+                    $response = Invoke-RestMethod $url -Headers $headers -contenttype $contentTypeMultipartFormData  -Method $method -OutFile ($tmpFolderIssueAttachments + "\" + $issueId + "\" + $issueAttachmentFilename )
+                    #$response | Out-File ($tmpFolderIssueAttachments + "\" + $issueId + "\" + $issueAttachmentFilename )
                 } # Iterate issue attachments.
             }
         }
-        
-        $method = "Post"
-        Add-Content $logFileRpaAasProcess ( ( Get-date -f ('yyyy-MM-dd HH:mm:ss').toString() ) + " " + "Invoke-RestMethod(url/contentType/method/Body): " + $url + " " + $contentTypeApplicationJson + " " + $method + " " + $postData )
-        $response = Invoke-RestMethod $url -Headers $headers -contenttype $contentTypeApplicationJson -Method $method -Body $postData
-        Add-Content $logFileRpaAasProcess ( ( Get-date -f ('yyyy-MM-dd HH:mm:ss').toString() ) + " " + "response: " + $response )
 
         # Call process worker ...
         Write-Host( "    - Call process worker" )
@@ -199,7 +216,8 @@ $objIssues | ForEach-Object {
             $curlCmdResult = cmd.exe /c ( $curlCmd )
             Add-Content $logFileRpaAasProcess ( ( Get-date -f ('yyyy-MM-dd HH:mm:ss').toString() ) + " " + "curlCmdResult: " + $curlCmdResult )
         }
-
+    } else {
+        Write-Host( "      * Warning: Transitions are NOT availables!")
     } # ... Are Transitions desired available?
 
 } # ... Iterates Issues.
