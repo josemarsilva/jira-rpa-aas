@@ -17,6 +17,7 @@ Guia de Configuração do Agendador de Tarefas do Windows para o projeto [Jira R
 1. No Agendador de Tarefas do Windows, *clique na aba* `Geral` e preencher as informações da seguinte forma:
   * Nome: `RunRpaProcessWork`
   * Descrição: `Run RPA Process Work`
+  * `[x]` Oculto
 
 ![Config-Agendador-Tarefas-Windows-Run-RPA-Process-Work-02.png](printscreen/Config-Agendador-Tarefas-Windows-Run-RPA-Process-Work-02.png)
 
