@@ -87,6 +87,11 @@ O diagrama de Estados e Transições com **Contexto - Jira RPA aaS** do projeto,
 * [Guia para Configuração do Jira](doc/README-Config-Jira.md)
 
 
+### 3.3.2. Configuração do Agendador de Tarefa do Windows executar o Process Worker
+
+* [Guia para Configuração do Agendador de Tarefa do Windows executar o Process Worker](doc/README-Config-Agendador-Tarefas-Windows.md)
+
+
 ### 3.4. Guia para Teste
 
 * n/a
