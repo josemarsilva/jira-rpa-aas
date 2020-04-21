@@ -21,6 +21,7 @@ $logFileRpaAasProcess = "rpa-aas-process.log"
 # Loading (key,value) ...
 $configKeyValueCsvFile = "config-key-value.csv"
 $objConfigKeyValue = Import-Csv $configKeyValueCsvFile -Delimiter ";" 
+$urlProtocolHostnamePort     = ( $objConfigKeyValue | Where-Object key -eq "url-protocol-hostname-port"     | Select-Object value )[0].value
 $user                        = ( $objConfigKeyValue | Where-Object key -eq "user"                           | Select-Object value )[0].value
 $password                    = ( $objConfigKeyValue | Where-Object key -eq "password"                       | Select-Object value )[0].value
 $jiraProjectKey              = ( $objConfigKeyValue | Where-Object key -eq "jira-project-key"               | Select-Object value )[0].value
@@ -53,7 +54,6 @@ $headersXAtlassianTokennocheck = @{ Authorization = $basicAuthValue
 }
 $contentTypeApplicationJson = "application/json"
 $contentTypeMultipartFormData = "multipart/form-data"
-$urlProtocolHostnamePort = 'http://localhost:8080'
 
 # Loading Issues  ...
 $objIssues = Import-Csv $tmpFileIssuesCsv -Delimiter ";" 

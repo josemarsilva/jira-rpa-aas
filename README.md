@@ -89,8 +89,13 @@ ou
 
 ### 3.3.1. Configuração do Jira
 
-* [Guia para Configuração do Jira](doc/README-Config-Jira.md)
+* [Guia para Configuração do Jira Server](doc/README-Config-Jira.md)
   * Em sua instalação do *Jira Server* local o link de acesso ao Jira é `http://localhost:8080/`
+
+ou
+
+* [Guia para Configuração do Jira Cloud](doc/README-Config-Jira-on-Cloud.md)
+  * Em sua instalação do *Jira Server* local o link de acesso ao Jira é `https://jira-rpa-aas.atlassian.net/`
 
 ### 3.3.2. Configuração do Agendador de Tarefa do Windows executar o Process Worker
 

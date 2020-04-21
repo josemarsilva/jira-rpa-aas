@@ -38,7 +38,6 @@ $base64 = [System.Convert]::ToBase64String($bytes)
 $basicAuthValue = "Basic $base64"
 $headers = @{ Authorization = $basicAuthValue }
 $contentType = "application/json"
-$urlProtocolHostnamePort = 'http://localhost:8080'
 $orderBy = "key"
 $fields = "id,key"
 $url = $urlProtocolHostnamePort + "/rest/api/2/search?jql=project=" + $jiraProjectKey + " and issuetype+in+(" +  $jiraIssuetypeKey + ")" + " and status+in+(" + $jiraIssuesStatusName + ")" + "+order+by+" + $orderBy + "&fields=" + $fields + "&maxResults=" + $jiraIssuesCountPerGet
