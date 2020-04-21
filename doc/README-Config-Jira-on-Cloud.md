@@ -101,6 +101,7 @@ Guia de Configuração da ferramenta Jira on Cloud *na nuvem* para o projeto [Ji
 1. No menu superior principal clique no ícone de engrenagem e em seguida no item de menu `Itens`
 
 ![Config-Jira-Software-Cloud-12.png](printscreen/Config-Jira-Software-Cloud-12.png)
+
 ![Config-Jira-Software-Cloud-13.png](printscreen/Config-Jira-Software-Cloud-13.png)
 
 2. Na página `Itens` :: `Tipos de Itens`, observe as configurações existentes: `Epic`, `Task` e `Sub-Task`
@@ -137,7 +138,51 @@ Guia de Configuração da ferramenta Jira on Cloud *na nuvem* para o projeto [Ji
 ![Config-Jira-Software-Cloud-20.png](printscreen/Config-Jira-Software-Cloud-20.png)
 
 
-7. 
+---
+
+## 1.7. Configurar Fluxo de Trabalho do RPA
+
+1. No menu superior principal clique no ícone de engrenagem e em seguida no item de menu `Itens`
+
+![Config-Jira-Software-Cloud-12.png](printscreen/Config-Jira-Software-Cloud-12.png)
+
+![Config-Jira-Software-Cloud-13.png](printscreen/Config-Jira-Software-Cloud-13.png)
+
+2. Na página `Itens` :: `Tipos de Itens`, no sub-menu lateral esquerdo, clique na item de sub-menu `Fluxo de Trabalho`
+
+![Config-Jira-Software-Cloud-21.png](printscreen/Config-Jira-Software-Cloud-21.png)
+
+3. Na página `Itens` :: `Fluxo de Trabalho`, observe as configurações existentes: `RPA: Process Management Workflow`
+  * Clique no link da ação `Editar` na linha correspondente a configuração `RPA: Process Management Workflow`
+  * Seu objetivo será editar o Fluxo de Trabalho `RPA: Process Management Workflow` e deixá-lo conforme as configurações abaixo
+
+![StateDiagram%20-%20Context.png](StateDiagram%20-%20Context.png)
+
+4. Na página `Itens` :: `Fluxo de Trabalho`, clique no link `Editar` correspondente a configuração `RPA: Process Management Workflow` e crie os seguintes _Status_:
+
+| Status      | Categoria          |
+| ----------- | ------------------ |
+| `EM EDIÇÃO` | `Itens Pendentes`  |
+| `SUBMETIDO` | `Em andamento`     |
+| `CONCLUÍDO` | `Itens Concluídos` |
+| `CANCELADO` | `Itens Concluídos` |
+| `FALHA`     | `Itens Pendentes`  |
+
+5. Na página `Itens` :: `Fluxo de Trabalho`, clique no link `Editar` correspondente a configuração `RPA: Process Management Workflow` e crie as seguintes _Transitions_:
+
+| Transição   | Status DE   |Status PARA   | Obs                  |
+| ----------- | ----------- | ------------ | -------------------- |
+|             | _início_    | `Open`       |                      |
+| `Submeter`  | `Open`      | `SUBMETIDO`  |                      |
+| `Submeter`  | `EM EDIÇÃO` | `SUBMETIDO`  |                      |
+| `Concluir`  | `SUBMETIDO` | `CONCLUÍDO`  |                      |
+| `Cancelar`  | _qualquer_  | `CANCELADO`  |                      |
+| `Falhar`    | `SUBMETIDO` | `FALHA`      |                      |
+| `Editar`    | `FALHA`     | `EM EDIÇÃO`  |                      |
+
+6. Na página `Itens` :: `Fluxo de Trabalho`, ao final da edição clicar no link `Publicar Rascunho`:
+
+
 
 
 ---
