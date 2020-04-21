@@ -21,6 +21,7 @@ Este repositório contém os componentes do projeto **jira-rpa-aas**. A soluçã
   * [Guia para Desenvolvimento](#32-guia-para-desenvolvimento)
   * [Guia para Configuração](#33-guia-para-configuração)
     * [Configuração do Jira](#331-configuração-do-jira)
+	* [Configuração do Agendador de Tarefas do Windows para executar o Process Worker](#332-configuração-do-agendador-de-tarefa-do-windows-executar-o-process-worker)
   * [Guia para Testes](#34-guia-para-teste)
   * [Guia para Implantação](#35-guia-para-implantação)
   * [Guia para Demonstração](#36-guia-para-demonstração)
@@ -70,7 +71,11 @@ O diagrama de Estados e Transições com **Contexto - Jira RPA aaS** do projeto,
 
 ### 3.1. Pré-requisitos ###
 
-* [Install Jira Software](https://github.com/josemarsilva/eval-virtualbox-vm-ubuntu-server#324-atlassian-jira-software-e-jira-core-for-linux-ubuntu)
+* [Instalação do Jira Software em um Servidor local](https://github.com/josemarsilva/eval-virtualbox-vm-ubuntu-server#324-atlassian-jira-software-e-jira-core-for-linux-ubuntu)
+
+ou
+
+* [Uso do serviço Jira Software _on Cloud_ ](doc/README-Config-Jira-on-Cloud.md)
 
 
 ### 3.2. Guia para Desenvolvimento ###
@@ -85,12 +90,12 @@ O diagrama de Estados e Transições com **Contexto - Jira RPA aaS** do projeto,
 ### 3.3.1. Configuração do Jira
 
 * [Guia para Configuração do Jira](doc/README-Config-Jira.md)
-
+  * Em sua instalação do *Jira Server* local o link de acesso ao Jira é `http://localhost:8080/`
 
 ### 3.3.2. Configuração do Agendador de Tarefa do Windows executar o Process Worker
 
 * [Guia para Configuração do Agendador de Tarefa do Windows executar o Process Worker](doc/README-Config-Agendador-Tarefas-Windows.md)
-
+  * Em sua instalação do *Jira Cloud* local o link de acesso ao Jira é `https://jira-rpa-aas.atlassian.net/`
 
 ### 3.4. Guia para Teste
 

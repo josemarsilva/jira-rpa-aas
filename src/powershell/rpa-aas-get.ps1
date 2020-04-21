@@ -21,12 +21,13 @@ Write-Host "Starting 'rpa-aas-get.ps1'"
 # Loading (key,value) ...
 $configKeyValueCsvFile = "config-key-value.csv"
 $objConfigKeyValue = Import-Csv $configKeyValueCsvFile -Delimiter ";" 
-$user                  = ( $objConfigKeyValue | Where-Object key -eq "user"                      | Select-Object value )[0].value
-$password              = ( $objConfigKeyValue | Where-Object key -eq "password"                  | Select-Object value )[0].value
-$jiraProjectKey        = ( $objConfigKeyValue | Where-Object key -eq "jira-project-key"          | Select-Object value )[0].value
-$jiraIssuetypeKey      = ( $objConfigKeyValue | Where-Object key -eq "jira-issuetype-key"        | Select-Object value )[0].value
-$jiraIssuesCountPerGet = ( $objConfigKeyValue | Where-Object key -eq "jira-issues-count-per-get" | Select-Object value )[0].value
-$jiraIssuesStatusName  = ( $objConfigKeyValue | Where-Object key -eq "jira-issues-status-name"   | Select-Object value )[0].value
+$urlProtocolHostnamePort = ( $objConfigKeyValue | Where-Object key -eq "url-protocol-hostname-port" | Select-Object value )[0].value
+$user                    = ( $objConfigKeyValue | Where-Object key -eq "user"                       | Select-Object value )[0].value
+$password                = ( $objConfigKeyValue | Where-Object key -eq "password"                   | Select-Object value )[0].value
+$jiraProjectKey          = ( $objConfigKeyValue | Where-Object key -eq "jira-project-key"           | Select-Object value )[0].value
+$jiraIssuetypeKey        = ( $objConfigKeyValue | Where-Object key -eq "jira-issuetype-key"         | Select-Object value )[0].value
+$jiraIssuesCountPerGet   = ( $objConfigKeyValue | Where-Object key -eq "jira-issues-count-per-get"  | Select-Object value )[0].value
+$jiraIssuesStatusName    = ( $objConfigKeyValue | Where-Object key -eq "jira-issues-status-name"    | Select-Object value )[0].value
 
 # Header, ContentType, Url ...
 $user = "admin"
