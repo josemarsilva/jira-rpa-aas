@@ -183,6 +183,34 @@ Guia de Configuração da ferramenta Jira on Cloud *na nuvem* para o projeto [Ji
 6. Na página `Itens` :: `Fluxo de Trabalho`, ao final da edição clicar no link `Publicar Rascunho`:
 
 
+---
+
+## 1.8. Configurar Grupo de Usuários RPA
+
+1. No menu superior principal clique no ícone de engrenagem e em seguida no item de menu `Gerenciamento de usuários`
+
+![Config-Jira-Software-Cloud-12.png](printscreen/Config-Jira-Software-Cloud-12.png)
+
+![Config-Jira-Software-Cloud-23.png](printscreen/Config-Jira-Software-Cloud-23.png)
+
+2. Na página `Administrador` :: `Usuários`, no sub-menu lateral esquerdo, clique na item de sub-menu `Grupos`
+  * Observe os seguintes grupos configurados: `administrators`, `jira-administrators`, *`jira-software-users`*  e `site-admins`
+  * Todo novo usuário acrescentado ao site deve participar do grupo *`jira-software-users`* para conseguir ter acesso ao site, criar issues, etc
+  * Clique no botão `Criar Grupo`
+
+![Config-Jira-Software-Cloud-24.png](printscreen/Config-Jira-Software-Cloud-24.png)
+
+4. Na caixa de diálogo `Criar Grupo` informe os campos:
+  * Nome do Grupo: `jira-software-robot-rpa-aas`
+  * Descrição do Grupo: `Grupo dos robôs de atendimento automatizados`
+  * `[x]` adicionar membros na próxima etapa
+  * Clique no botão `Criar Grupo`
+
+![Config-Jira-Software-Cloud-25.png](printscreen/Config-Jira-Software-Cloud-25.png)
+
+5. Na caixa de diálogo `Adicionar Membros ao Grupo` informe os campos:
+  * Informe os usuários que serão *robôs de atendimento* do serviço
+  * Clique no botão `Adicionar`
 
 
 ---
