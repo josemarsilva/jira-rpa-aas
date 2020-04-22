@@ -5,6 +5,7 @@ tmp-*
 *-tmp-*
 *.log
 /gitignore/
+/src/powershell/config-key-value.csv
 
 # Ignore Microsoft Office temporary files
 ~$*.xls*
