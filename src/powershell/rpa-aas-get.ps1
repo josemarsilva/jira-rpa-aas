@@ -30,8 +30,6 @@ $jiraIssuesCountPerGet   = ( $objConfigKeyValue | Where-Object key -eq "jira-iss
 $jiraIssuesStatusName    = ( $objConfigKeyValue | Where-Object key -eq "jira-issues-status-name"    | Select-Object value )[0].value
 
 # Header, ContentType, Url ...
-$user = "admin"
-$password = "admin"
 $pair = "${user}:${password}"
 $bytes = [System.Text.Encoding]::ASCII.GetBytes($pair)
 $base64 = [System.Convert]::ToBase64String($bytes)
