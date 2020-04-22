@@ -215,9 +215,46 @@ Guia de Configuração da ferramenta Jira on Cloud *na nuvem* para o projeto [Ji
 
 ---
 
+## 1.7. Configurar Condições das Transições do Fluxo de Trabalho vs Grupo de Usuários
+
+1. No menu superior principal clique no ícone de engrenagem e em seguida no item de menu `Itens`
+
+![Config-Jira-Software-Cloud-12.png](printscreen/Config-Jira-Software-Cloud-12.png)
+
+![Config-Jira-Software-Cloud-13.png](printscreen/Config-Jira-Software-Cloud-13.png)
+
+2. Na página `Itens` :: `Tipos de Itens`, no sub-menu lateral esquerdo, clique na item de sub-menu `Fluxo de Trabalho`
+
+![Config-Jira-Software-Cloud-21.png](printscreen/Config-Jira-Software-Cloud-21.png)
+
+3. Na página `Itens` :: `Fluxo de Trabalho`, clique no botão `Editar` na linha correspondente a configuração `RPA: Process Management Workflow`
+  * Seu objetivo será editar as transições em ( `Concluir` e `Falhar` ) e deixá-las restrita ao grupo de usuários `jira-software-robot-rpa-aas`
+  * Clique na opção `Mostrar rótulos de transição` para facilitar a visualização
+
+![StateDiagram%20-%20Context.png](StateDiagram%20-%20Context.png)
+
+  * Para cada uma das transições em ( `Concluir` e `Falhar` )
+    * Clique na transição, isto faz abrir uma caixa de diálogo na lateral direita
+	* Clique no link `Condições` e em seguida no botão `Adicionar Condição`
+
+![Config-Jira-Software-Cloud-27.png](printscreen/Config-Jira-Software-Cloud-27.png)
+
+	* Selecione a opção `O usuário está no grupo` e em seguida no botão `Adicionar Condição`
+
+![Config-Jira-Software-Cloud-28.png](printscreen/Config-Jira-Software-Cloud-28.png)
+
+	* Na caixa de diálogo `Administração` :: `Add Parameters To Condition` selecione a opção `jira-software-robot-rpa-aas` e clique no botão `Adicionar`
+
+![Config-Jira-Software-Cloud-29.png](printscreen/Config-Jira-Software-Cloud-29.png)
+
+	* Em seguida clique no link `Publicar Rascunho`
+
+---
+
 # 2. Referências
 
 * [Try Jira](https://www.atlassian.com/try)
+* [Jira Cloud API Tokens (password generation)](https://confluence.atlassian.com/cloud/api-tokens-938839638.html)
 
 ---
 
