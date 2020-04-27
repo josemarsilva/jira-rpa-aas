@@ -11,7 +11,7 @@ REM              * https://stackoverflow.com/questions/13724940/how-to-run-a-pow
 REM #############################################################################
 REM
 
-SET BASE_PATH_PROCESS_WORKER_SERVICE=C:\GitHome\ws-github-01\descaract-dados
+SET BASE_PATH_PROCESS_WORKER_SERVICE=C:\GitHome\ws-brad-01\descaract-dados
 SET BASE_PATH_ANEXO_ISSUE=..\powershell
 SET PROCESS_WORKER_SERVICE=INDEFINIDO
 
