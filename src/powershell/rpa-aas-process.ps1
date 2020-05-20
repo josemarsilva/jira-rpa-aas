@@ -31,6 +31,7 @@ $processWorkerCmd            = ( $objConfigKeyValue | Where-Object key -eq "proc
 $processWorkerFailureMessage = ( $objConfigKeyValue | Where-Object key -eq "process-worker-failure-message" | Select-Object value )[0].value
 $tmpFileIssuesCsv            = ( $objConfigKeyValue | Where-Object key -eq "tmp-file-issues"                | Select-Object value )[0].value
 $tmpFileProcessWorker        = ( $objConfigKeyValue | Where-Object key -eq "tmp-file-process-worker"        | Select-Object value )[0].value
+$attachmentsSkipList         = ( $objConfigKeyValue | Where-Object key -eq "attachments-skip-list"          | Select-Object value )[0].value
 $tmpFolderIssueAttachments   = ( $objConfigKeyValue | Where-Object key -eq "tmp-folder-issue-attachments"   | Select-Object value )[0].value
 Add-Content $logFileRpaAasProcess ( ( Get-date -f ('yyyy-MM-dd HH:mm:ss').toString() ) + " " + "User/Password/ProjectKey: " + $user + "/" + $password + "/" + $password + "/" + $jiraProjectKey)
 
@@ -121,20 +122,31 @@ $objIssues | ForEach-Object {
                     $issueAttachmentId = $_.id 
                     $issueAttachmentFilename = $_.filename
                     $issueAttachmentContent = $_.content
-                    Write-Host( "      - attachment(id, filename): ( " + $issueAttachmentId + ", " + $issueAttachmentFilename + " )" )
-                    Add-Content $logFileRpaAasProcess ( ( Get-date -f ('yyyy-MM-dd HH:mm:ss').toString() ) + " " + "Attachments(id,filename,content): " + $issueAttachmentId + ", " + $issueAttachmentFilename + ", " + $issueAttachmentContent )
-                    # Get attachment
-                    $url = $issueAttachmentContent
-                    $method = "Get"
-                    $response = Invoke-RestMethod $url -Headers $headers -contenttype $contentTypeMultipartFormData  -Method $method -OutFile ($tmpFolderIssueAttachments + "\" + $issueId + "\" + $issueAttachmentFilename )
-                    #$response | Out-File ($tmpFolderIssueAttachments + "\" + $issueId + "\" + $issueAttachmentFilename )
+                    $skipAttachment = $false
+                    $objAttachmentsSkipList = $attachmentsSkipList.Split(",")
+                    $objAttachmentsSkipList | ForEach-Object {
+                        $issueAttachmentSkip = $_
+                        if ($issueAttachmentFilename -eq $issueAttachmentSkip) {
+                            $skipAttachment = $true
+                        }
+                    }
+                    if (-Not $skipAttachment ) { 
+                        Write-Host( "      - attachment(id, filename): ( " + $issueAttachmentId + ", " + $issueAttachmentFilename + " )" )
+                        Add-Content $logFileRpaAasProcess ( ( Get-date -f ('yyyy-MM-dd HH:mm:ss').toString() ) + " " + "Attachments(id,filename,content): " + $issueAttachmentId + ", " + $issueAttachmentFilename + ", " + $issueAttachmentContent )
+                        # Get attachment
+                        $url = $issueAttachmentContent
+                        $method = "Get"
+                        $response = Invoke-RestMethod $url -Headers $headers -contenttype $contentTypeMultipartFormData  -Method $method -OutFile ($tmpFolderIssueAttachments + "\" + $issueId + "\" + $issueAttachmentFilename )
+                        #$response | Out-File ($tmpFolderIssueAttachments + "\" + $issueId + "\" + $issueAttachmentFilename )
+                    }
                 } # Iterate issue attachments.
             }
         }
 
         # Call process worker ...
-        Write-Host( "    - Call process worker" )
+        Write-Host( "    + Call process worker" )
         Add-Content $logFileRpaAasProcess ( ( Get-date -f ('yyyy-MM-dd HH:mm:ss').toString() ) + " " + "processWorkerCmd/issueId/issueKey: " + $processWorkerCmd + "/" + $issueId + "/" + $issueKey )
+        Write-Host( "      - cmd.exe /c " + $processWorkerCmd + " " + $issueId + " " + $issueKey )
         cmd.exe /c ( $processWorkerCmd + " " + $issueId + " " + $issueKey ) | Out-File $tmpFileProcessWorker
 
         # Get results of process worker ...
