@@ -11,7 +11,7 @@ REM              * https://stackoverflow.com/questions/13724940/how-to-run-a-pow
 REM #############################################################################
 REM
 
-SET BASE_PATH_PROCESS_WORKER_SERVICE=C:\GitHome\ws-brad-01\descaract-dados
+SET BASE_PATH_PROCESS_WORKER_SERVICE=C:\GitHome\ws-brad-01\brad-descaract-dados
 SET BASE_PATH_ANEXO_ISSUE=..\powershell
 SET PROCESS_WORKER_SERVICE=INDEFINIDO
 
@@ -66,8 +66,8 @@ IF "%PROCESS_WORKER_SERVICE%" == "ARQ" (
 		ECHO Step-2.3: Process Worker Indefinido
 		ECHO.
 		ECHO ^<status^>FALHA^</status^>
-		ECHO ^<status-message^>process-worker-custom-01.bat nao pode determinar o servico a ser executado. Confira os arquivos anexados. Em caso de duvida consulte https://github.com/josemarsilva/jira-rpa-aas ^</status-message^>
-		ECHO ^<package-zip^>^</package-zip^>
+		ECHO ^<status-message^>process-worker-custom-01.bat nao pode determinar o servico a ser executado. Confira os arquivos anexados. Em caso de duvida consulte a documentacao anexada ^</status-message^>
+		ECHO ^<package-zip^>C:\GitHome\ws-brad-01\brad-descaract-dados\gitignore\doc.zip^</package-zip^>
 		ECHO.
 	)
 )
