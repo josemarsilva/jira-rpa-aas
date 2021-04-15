@@ -132,3 +132,4 @@ ou
 ## Referências ##
 
 * [Material da IBM sobre RPA](https://www.ibm.com/br-pt/automation/rpa?p1=Search&p4=43700052629843287&p5=e&cm_mmc=Search_Google-_-1S_1S-_-LA_BR-_-rpa_e&cm_mmca7=71700000065117446&cm_mmca8=aud-382859943522:kwd-176772556&cm_mmca9=CjwKCAjw4KD0BRBUEiwA7MFNTWazNMU4x-6wijzylZIY0ZBcxdLkT1EZ3q8lX8PHy8jp0ooRJzmQKBoCivkQAvD_BwE&cm_mmca10=427854564440&cm_mmca11=e&gclid=CjwKCAjw4KD0BRBUEiwA7MFNTWazNMU4x-6wijzylZIY0ZBcxdLkT1EZ3q8lX8PHy8jp0ooRJzmQKBoCivkQAvD_BwE&gclsrc=aw.ds)
+* [Dica util: como compactar um arquivo em linha de comando do windows](https://superuser.com/questions/201371/create-zip-folder-from-the-command-line-windows)
