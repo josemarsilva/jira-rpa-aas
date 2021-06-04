@@ -269,6 +269,7 @@ Atenção: Conforme a versão da ferramenta Jira, o projeto template pode ser de
 ![Config-Jira-Software-Cloud-22.png](printscreen/Config-Jira-Software-Cloud-22.png)
 
   * Seu objetivo será editar as transições em ( `Concluir` e `Falhar` ) e deixá-las restrita ao grupo de usuários `jira-software-robot-rpa-aas`
+  * e editar todas as demais transições e deixá-las restrita ao grupo de usuários `jira-servicemanagement-users`
   * Clique na opção `Mostrar rótulos de transição` para facilitar a visualização
 
 ![StateDiagram%20-%20Context.png](StateDiagram%20-%20Context.png)
@@ -291,6 +292,68 @@ Atenção: Conforme a versão da ferramenta Jira, o projeto template pode ser de
 	* Não é preciso salvar uma cópia backup
 
 ![Config-Jira-Software-Cloud-30.png](printscreen/Config-Jira-Software-Cloud-30.png)
+
+---
+
+## 1.10. Convidar e configurar as novas pessoas que serão usuarios do serviço
+
+#### 1.10.1. Entrar no menu de configuração de pessoas do projeto
+
+  * No menu superior principal clique no ícone de engrenagem e em seguida no item de menu `Projeto`
+
+![Config-Jira-Software-Cloud-35.png](printscreen/Config-Jira-Software-Cloud-35.png)
+
+  * No formulário Gerenciar projetos, localizar a linha correspondente ao projeto `RPA` e clicar no botão de configuração do projeto (ícone de ...) 
+
+![Config-Jira-Software-Cloud-36.png](printscreen/Config-Jira-Software-Cloud-36.png)
+
+  * No formulário `Projeto / RPA / Configurações de projeto - Detalhes`, no menu lateral esquerdo `Configuração do Projeto` clicar na opção de sub-menu `Configurações de projeto >> Pessoas`
+
+![Config-Jira-Software-Cloud-37.png](printscreen/Config-Jira-Software-Cloud-37.png)
+
+  * No formulário `Projeto / RPA / Configurações de projeto - Pessoas` clicar no botão `Adicionar pessoas`
+  * Na caixa de diálogo `Adicionar Pessoas` preencher o endereço de e-mail da pessoa convidada com a função `Service Desk Team` que já está previamente configurada
+
+![Config-Jira-Software-Cloud-38.png](printscreen/Config-Jira-Software-Cloud-38.png)
+
+![Config-Jira-Software-Cloud-39.png](printscreen/Config-Jira-Software-Cloud-39.png)
+
+
+---
+
+## 1.11. Configurar o acesso seguro do Robô de RPA através de TOKEN
+
+#### 1.11.1. Entrar na administração do Jira para configurar acesso através de Token
+
+  * No menu superior principal clique no ícone de 9 pontos para acessar a lista de opções de menu do produto
+  * Na lista de opções de menu do produto clique no item de sub-menu `Administration`
+
+![Config-Jira-Software-Cloud-40.png](printscreen/Config-Jira-Software-Cloud-40.png)
+
+  * No menu superior principal do produto `Atlassian Administrator` clique a opção de menu `Configurações`
+  * Na lista de opções de menu da Administração clique no item de sub-menu `Atlassian Administrator >> chaves de API`
+
+![Config-Jira-Software-Cloud-41.png](printscreen/Config-Jira-Software-Cloud-41.png)
+
+![Config-Jira-Software-Cloud-42.png](printscreen/Config-Jira-Software-Cloud-42.png)
+
+#### 1.11.2. Criar o Token de Acesso
+
+  * No formulário `Atlassian Administrator :: Chaves de API` clique no botão `Criar chave API`
+  * Na caixa de diálogo `Criar uma chave de API` informar:
+    * Nome: `jira-rpa-aas`
+	* clique no botão 
+
+![Config-Jira-Software-Cloud-43.png](printscreen/Config-Jira-Software-Cloud-43.png)
+
+![Config-Jira-Software-Cloud-44.png](printscreen/Config-Jira-Software-Cloud-44.png)
+
+  * Guarde as informações da chave API de Token gerada porque você vai precisar desta inforamção:
+    * Nome: `jira-rpa-aas`
+	* ID da Organização: `************************************`
+	* Chave de API: `********************`
+
+
 
 ---
 

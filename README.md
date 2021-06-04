@@ -71,11 +71,11 @@ O diagrama de Estados e Transições com **Contexto - Jira RPA aaS** do projeto,
 
 ### 3.1. Pré-requisitos ###
 
-* [Instalação do Jira Software em um Servidor local](https://github.com/josemarsilva/eval-virtualbox-vm-ubuntu-server#324-atlassian-jira-software-e-jira-core-for-linux-ubuntu)
+* [Instalação do Jira Software ou Service Management em um Servidor local](https://github.com/josemarsilva/eval-virtualbox-vm-ubuntu-server#324-atlassian-jira-software-e-jira-core-for-linux-ubuntu)
 
 ou
 
-* [Uso do serviço Jira Software _on Cloud_ ](doc/README-Config-Jira-on-Cloud.md)
+* [Uso do serviço Jira Software ou Service Management _on Cloud_ ](doc/README-Config-Jira-on-Cloud.md)
 
 
 ### 3.2. Guia para Desenvolvimento ###
