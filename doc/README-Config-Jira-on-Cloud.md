@@ -12,12 +12,12 @@ Guia de Configuração da ferramenta Jira on Cloud *na nuvem* para o projeto [Ji
 
 ## 1.1. Criar o ambiente do Jira on Cloud na atlassian.net
 
-1. No seu navegador, entrar no site `https://www.atlassian.com/try`
-2. Na página de produtos da Atlassian, clique no botão `Try` abaixo do ícone *Jira Software*
+#### 1.1.1. No seu navegador, entrar no site `https://www.atlassian.com/try`
+#### 1.1.2. Na página de produtos da Atlassian, clique no botão `Try` abaixo do ícone *Jira Software*
 
 ![Config-Jira-Software-Cloud-01.png](printscreen/Config-Jira-Software-Cloud-01.png)
 
-3. Na página de produtos gratuitos da Atlassian, clique no botão `Choose one` da opção *Jira Software*
+#### 1.1.3. Na página de produtos gratuitos da Atlassian, clique no botão `Choose one` da opção *Jira Software*
 
 ![Config-Jira-Software-Cloud-02.png](printscreen/Config-Jira-Software-Cloud-02.png)
 
@@ -25,20 +25,20 @@ Guia de Configuração da ferramenta Jira on Cloud *na nuvem* para o projeto [Ji
 
 ## 1.2. Preencha as inforamções básicas do serviço Jira Cloud
 
-1. Sua escolha foi `Jira Software :: Cloud Free` que te garente
+#### 1.2.1. Sua escolha foi `Jira Software :: Cloud Free` que te garente
   * acesso a funcionalidades gratuitas
   * 2 GB de armazenamento
   * até 10 usuários
   * suporte da comunidade
-2. Preencha seu nome
+#### 1.2.2. Preencha seu nome
   * Name: `seu nome`
   * Last Name: `seu sobrenome`
   * Site name: `nome do seu site`
-3. Clique no botão `Agree and Sign In`
+#### 1.2.3. Clique no botão `Agree and Sign In`
 
 ![Config-Jira-Software-Cloud-03.png](printscreen/Config-Jira-Software-Cloud-03.png)
 
-4. Clique em `Skip question` para pular a classificação de seu site que não é obrigatória
+#### 1.2.4. Clique em `Skip question` para pular a classificação de seu site que não é obrigatória
 
 ![Config-Jira-Software-Cloud-04.png](printscreen/Config-Jira-Software-Cloud-04.png)
 
@@ -46,18 +46,20 @@ Guia de Configuração da ferramenta Jira on Cloud *na nuvem* para o projeto [Ji
 
 ## 1.3. Convide os membros do seu time
 
-1. Preencha os campos do formulário com os endereços de e-mail de cada um dos membros do seu time:
+Atenção: No tópico [1.8](#18-configurar-grupo-de-usuários-rpa) você poderá convidar mais pessoas
+
+#### 1.3.1. Preencha os campos do formulário com os endereços de e-mail de cada um dos membros do seu time:
   * e-mail: `e-mail do membro de seu time`
 
-2. Clique no botão avançar
+#### 1.3.2. Clique no botão avançar
 
 ![Config-Jira-Software-Cloud-05.png](printscreen/Config-Jira-Software-Cloud-05.png)
 
-3. Cada um dos membros do time que você informou o e-mail irá receber um e-mail conforme este abaixo, convidando-o para entrar no projeto
+#### 1.3.3. Cada um dos membros do time que você informou o e-mail irá receber um e-mail conforme este abaixo, convidando-o para entrar no projeto
 
 ![Config-Jira-Software-Cloud-06.png](printscreen/Config-Jira-Software-Cloud-06.png)
 
-4. Preencha as perguntas da pesquisa sobre o conhecimento dos usuários e em seguida clique no botão `Próximo` na próxima pergunta
+#### 1.3.4. Preencha as perguntas da pesquisa sobre o conhecimento dos usuários e em seguida clique no botão `Próximo` na próxima pergunta
 
 ![Config-Jira-Software-Cloud-07.png](printscreen/Config-Jira-Software-Cloud-07.png)
 
@@ -65,11 +67,11 @@ Guia de Configuração da ferramenta Jira on Cloud *na nuvem* para o projeto [Ji
 
 ## 1.4. Defina o template de seu projeto
 
-PS: Conforme a evolução da ferramenta, o projeto template pode ser definido no momento da criação do projeto.
+Atenção: Conforme a versão da ferramenta Jira, o projeto template pode ser definido no momento da criação do projeto e não neste momento.
 
-1. Selecione o template de `Negócio`
+#### 1.4.1. Selecione o template de `Negócio`
 
-2. Selecione a opção `Controle de Processo`
+#### 1.4.2. Selecione a opção `Controle de Processo`
 
 ![Config-Jira-Software-Cloud-08.png](printscreen/Config-Jira-Software-Cloud-08.png)
 
@@ -166,7 +168,11 @@ PS: Conforme a evolução da ferramenta, o projeto template pode ser definido no
 ![Config-Jira-Software-Cloud-21.png](printscreen/Config-Jira-Software-Cloud-21.png)
 
 #### 1.7.3. Na página `Itens` :: `Fluxo de Trabalho`, observe as configurações existentes: `RPA: Process Management Workflow`
+
   * Clique no link da ação `Editar` na linha correspondente a configuração `RPA: Process Management Workflow`
+
+![Config-Jira-Software-Cloud-22.png](printscreen/Config-Jira-Software-Cloud-22.png)
+
   * Seu objetivo será editar o Fluxo de Trabalho `RPA: Process Management Workflow` e deixá-lo conforme as configurações abaixo
 
 ![StateDiagram%20-%20Context.png](StateDiagram%20-%20Context.png)
@@ -183,15 +189,15 @@ PS: Conforme a evolução da ferramenta, o projeto template pode ser definido no
 
 #### 1.7.5. Na página `Itens` :: `Fluxo de Trabalho`, clique no link `Editar` correspondente a configuração `RPA: Process Management Workflow` e crie as seguintes _Transitions_:
 
-| Transição   | Status DE   |Status PARA   | Obs                  |
-| ----------- | ----------- | ------------ | -------------------- |
-|             | _início_    | `Open`       |                      |
-| `Submeter`  | `Open`      | `SUBMETIDO`  |                      |
-| `Submeter`  | `EM EDIÇÃO` | `SUBMETIDO`  |                      |
-| `Concluir`  | `SUBMETIDO` | `CONCLUÍDO`  |                      |
-| `Cancelar`  | _qualquer_  | `CANCELADO`  |                      |
-| `Falhar`    | `SUBMETIDO` | `FALHA`      |                      |
-| `Editar`    | `FALHA`     | `EM EDIÇÃO`  |                      |
+| Transição   | Status DE   |Status PARA   | Descrição            | Obs                  |
+| ----------- | ----------- | ------------ | -------------------- | -------------------- |
+|             | _início_    | `Open`       | Criar                |                      |
+| `Submeter`  | `Open`      | `SUBMETIDO`  | Submeter             |                      |
+| `Submeter`  | `EM EDIÇÃO` | `SUBMETIDO`  | Submeter             |                      |
+| `Concluir`  | `SUBMETIDO` | `CONCLUÍDO`  | Concluir             |                      |
+| `Cancelar`  | _qualquer_  | `CANCELADO`  | Cancelar             |                      |
+| `Falhar`    | `SUBMETIDO` | `FALHA`      | Falhar               |                      |
+| `Editar`    | `FALHA`     | `EM EDIÇÃO`  | RE-Editar            |                      |
 
 #### 1.7.6. Na página `Itens` :: `Fluxo de Trabalho`, ao final da edição clicar no link `Publicar Rascunho`:
 
@@ -200,20 +206,20 @@ PS: Conforme a evolução da ferramenta, o projeto template pode ser definido no
 
 ## 1.8. Configurar Grupo de Usuários RPA
 
-1. No menu superior principal clique no ícone de engrenagem e em seguida no item de menu `Gerenciamento de usuários`
+#### 1.8.1. No menu superior principal clique no ícone de engrenagem e em seguida no item de menu `Gerenciamento de usuários`
 
 ![Config-Jira-Software-Cloud-12.png](printscreen/Config-Jira-Software-Cloud-12.png)
 
 ![Config-Jira-Software-Cloud-23.png](printscreen/Config-Jira-Software-Cloud-23.png)
 
-2. Na página `Administrador` :: `Usuários`, no sub-menu lateral esquerdo, clique na item de sub-menu `Grupos`
-  * Observe os seguintes grupos configurados: `administrators`, `jira-administrators`, *`jira-software-users`*  e `site-admins`
-  * Todo novo usuário acrescentado ao site deve participar do grupo *`jira-software-users`* para conseguir ter acesso ao site, criar issues, etc
-  * Clique no botão `Criar Grupo`
+#### 1.8.2. Na página `Administrador` :: `Usuários`, no sub-menu lateral esquerdo, clique na item de sub-menu `Grupos`
+  * Observe os seguintes grupos configurados: `administrators`, `jira-administrators`, *`jira-software-users`* ( ou *`jira-servicemanagement-users`* ) e `site-admins`
+  * Todo novo usuário acrescentado ao site deve participar do grupo *`jira-software-users`* ( ou *`jira-servicemanagement-users`* ) para conseguir ter acesso ao site, criar issues, etc
 
 ![Config-Jira-Software-Cloud-24.png](printscreen/Config-Jira-Software-Cloud-24.png)
 
-4. Na caixa de diálogo `Criar Grupo` informe os campos:
+#### 1.8.4. Na caixa de diálogo `Criar Grupo` informe os campos:
+  * Clique no botão `Criar Grupo`
   * Nome do Grupo: `jira-software-robot-rpa-aas`
   * Descrição do Grupo: `Grupo dos robôs de atendimento automatizados`
   * `[x]` adicionar membros na próxima etapa
@@ -221,26 +227,29 @@ PS: Conforme a evolução da ferramenta, o projeto template pode ser definido no
 
 ![Config-Jira-Software-Cloud-25.png](printscreen/Config-Jira-Software-Cloud-25.png)
 
-5. Na caixa de diálogo `Adicionar Membros ao Grupo` informe os campos:
+#### 1.8.5. Na caixa de diálogo `Adicionar Membros ao Grupo` informe os campos:
   * Informe os usuários que serão *robôs de atendimento* do serviço
   * Clique no botão `Adicionar`
 
 
 ---
 
-## 1.7. Configurar Condições das Transições do Fluxo de Trabalho vs Grupo de Usuários
+## 1.9. Configurar Condições das Transições do Fluxo de Trabalho vs Grupo de Usuários
 
-1. No menu superior principal clique no ícone de engrenagem e em seguida no item de menu `Itens`
+#### 1.9.1. No menu superior principal clique no ícone de engrenagem e em seguida no item de menu `Itens`
 
 ![Config-Jira-Software-Cloud-12.png](printscreen/Config-Jira-Software-Cloud-12.png)
 
 ![Config-Jira-Software-Cloud-13.png](printscreen/Config-Jira-Software-Cloud-13.png)
 
-2. Na página `Itens` :: `Tipos de Itens`, no sub-menu lateral esquerdo, clique na item de sub-menu `Fluxo de Trabalho`
+#### 1.9.2. Na página `Itens` :: `Tipos de Itens`, no sub-menu lateral esquerdo, clique na item de sub-menu `Fluxo de Trabalho`
 
 ![Config-Jira-Software-Cloud-21.png](printscreen/Config-Jira-Software-Cloud-21.png)
 
-3. Na página `Itens` :: `Fluxo de Trabalho`, clique no botão `Editar` na linha correspondente a configuração `RPA: Process Management Workflow`
+#### 1.9.3. Na página `Itens` :: `Fluxo de Trabalho`, clique no botão `Editar` na linha correspondente a configuração `RPA: Process Management Workflow`
+
+![Config-Jira-Software-Cloud-22.png](printscreen/Config-Jira-Software-Cloud-22.png)
+
   * Seu objetivo será editar as transições em ( `Concluir` e `Falhar` ) e deixá-las restrita ao grupo de usuários `jira-software-robot-rpa-aas`
   * Clique na opção `Mostrar rótulos de transição` para facilitar a visualização
 
@@ -261,6 +270,8 @@ PS: Conforme a evolução da ferramenta, o projeto template pode ser definido no
 ![Config-Jira-Software-Cloud-29.png](printscreen/Config-Jira-Software-Cloud-29.png)
 
 	* Em seguida clique no link `Publicar Rascunho`
+
+![Config-Jira-Software-Cloud-30.png](printscreen/Config-Jira-Software-Cloud-30.png)
 
 ---
 
