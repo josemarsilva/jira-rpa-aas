@@ -83,12 +83,12 @@ Guia de Configuração da ferramenta Jira on Cloud *na nuvem* para o projeto [Ji
 
 ![Config-Jira-Software-Cloud-09.png](printscreen/Config-Jira-Software-Cloud-09.png)
 
-3. Pronto! Seu ambient no *Jira Cloud* foi criado para seu projeto
+3. Pronto! Seu projeto foi criado em seu ambiente do *Jira Cloud* 
   * Link de acesso [https://jira-rpa-aas.atlassian.net/](https://jira-rpa-aas.atlassian.net/)
 
 4. Você pode alterar a visão que tem dos itens:
-  * clique no botão `Resumo` para acessar a resumo
-  * clique no botão `Painel` para acessar o painel
+  * clique no botão de menu lateral esquerdo `Filas` para acessar a fila de chamados
+  * clique no botão de menu superior `Painéis de controle` para acessar o painel de controle
 
 ![Config-Jira-Software-Cloud-10.png](printscreen/Config-Jira-Software-Cloud-10.png)
 
