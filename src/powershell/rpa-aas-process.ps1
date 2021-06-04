@@ -33,7 +33,7 @@ $tmpFileIssuesCsv            = ( $objConfigKeyValue | Where-Object key -eq "tmp-
 $tmpFileProcessWorker        = ( $objConfigKeyValue | Where-Object key -eq "tmp-file-process-worker"        | Select-Object value )[0].value
 $attachmentsSkipList         = ( $objConfigKeyValue | Where-Object key -eq "attachments-skip-list"          | Select-Object value )[0].value
 $tmpFolderIssueAttachments   = ( $objConfigKeyValue | Where-Object key -eq "tmp-folder-issue-attachments"   | Select-Object value )[0].value
-Add-Content $logFileRpaAasProcess ( ( Get-date -f ('yyyy-MM-dd HH:mm:ss').toString() ) + " " + "User/Password/ProjectKey: " + $user + "/" + $password + "/" + $password + "/" + $jiraProjectKey)
+Add-Content $logFileRpaAasProcess ( ( Get-date -f ('yyyy-MM-dd HH:mm:ss').toString() ) + " " + "User/********/ProjectKey: " + $user + "/" + "/" + $jiraProjectKey)
 
 # Create issue attachments temporary folder ...
 if ( -Not (Test-Path -Path $tmpFolderIssueAttachments) ) {
