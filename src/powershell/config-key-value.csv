@@ -6,7 +6,6 @@ jira-project-key;RPA;Jira Project Key used in almost all scripts
 jira-issuetype-key;RPA;Jira IssueType Key used in almost all scripts
 jira-issues-count-per-get;5;Jira API parameter - issues count per get
 jira-issues-status-name;SUBMETIDO;Jira API parameter - issues status name
-process-worker-cmd;..\win-cmd-batch\process-worker-custom-01.bat;Comando de execucao do process-worker
 process-worker-cmd;..\win-cmd-batch\process-worker.bat;Comando de execucao do process-worker
 process-worker-failure-message;Sorry something went wrong please see our faq here: https://github.com/josemarsilva/jira-rpa-aas ;Failure message commented when process-worker-cmd fails
 tmp-file-issues;issues.tmp;Issues gotten Temporary File
