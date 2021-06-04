@@ -90,7 +90,7 @@ PS: Conforme a evolução da ferramenta, o projeto template pode ser definido no
 
 #### 1.5.4. Você pode alterar a visão que tem dos itens:
   * clique no botão de menu lateral esquerdo `Filas` para acessar a fila de chamados
-  * clique no botão de menu superior `Painéis de controle` para acessar o painel de controle
+  * clique no botão de menu superior `Painéis de controle` para acessar o painel de controle. Mais para frente vamos configurar uma a visão deste painel para ficar parecida com um Dashboard de Kanban.
 
 ![Config-Jira-Software-Cloud-10.png](printscreen/Config-Jira-Software-Cloud-10.png)
 
@@ -100,18 +100,24 @@ PS: Conforme a evolução da ferramenta, o projeto template pode ser definido no
 
 ## 1.6. Crie o Tipo de Item e Esquema de Tipo de Item de RPA
 
-1. No menu superior principal clique no ícone de engrenagem e em seguida no item de menu `Itens`
+#### 1.6.1. No menu superior principal clique no ícone de engrenagem e em seguida no item de menu `Itens`
 
 ![Config-Jira-Software-Cloud-12.png](printscreen/Config-Jira-Software-Cloud-12.png)
 
 ![Config-Jira-Software-Cloud-13.png](printscreen/Config-Jira-Software-Cloud-13.png)
 
-2. Na página `Itens` :: `Tipos de Itens`, observe as configurações existentes: `Epic`, `Task` e `Sub-Task`
-3. Na página `Itens` :: `Tipos de Itens`, clique no botão `Adicionar Tipo de Item`
+#### 1.6.2. Na página `Itens` :: `Tipos de Itens`
+
+* observe as configurações existentes: `Epic`, `Task` e `Sub-Task`
+
+#### 1.6.3. Na página `Itens` :: `Tipos de Itens`
+
+* clique no botão `Adicionar Tipo de Item`
 
 ![Config-Jira-Software-Cloud-14.png](printscreen/Config-Jira-Software-Cloud-14.png)
 
-3. Na caixa de diálogo `Adicionar Tipo de Item`, preencha os campos da seguinte forma:
+#### 1.6.4. Na caixa de diálogo `Adicionar Tipo de Item`, preencha os campos da seguinte forma:
+
   * Nome: `RPA`
   * Descrição: `RPA`
   * Tipo: `Tipo de item padrão`
@@ -119,19 +125,22 @@ PS: Conforme a evolução da ferramenta, o projeto template pode ser definido no
 
 ![Config-Jira-Software-Cloud-15.png](printscreen/Config-Jira-Software-Cloud-15.png)
 
-4. Na página `Itens` :: `Tipos de Itens`, observe as configurações existentes: `Epic`, *`RPA`*, `Task` e `Sub-Task`
+#### 1.6.5. Na página `Itens` :: `Tipos de Itens`, observe as configurações existentes: `Epic`, *`RPA`*, `Task` e `Sub-Task`
+
   * Observe a nova configuração de tipo de item criada: `RPA`
   * Observe que na coluna `Respectivo Esquema` há 2 Esquemas de tipos de itens: `Default Issue Type Scheme` e `RPA: Process Management Issue Type Scheme` associados aos itens
 
 ![Config-Jira-Software-Cloud-16.png](printscreen/Config-Jira-Software-Cloud-16.png)
 
-5. Na página `Itens` :: `Tipos de Itens`, no sub-menu lateral esquerdo, clique na item de sub-menu `Esquema de tipos de itens`
+#### 1.6.6. Na página `Itens` :: `Tipos de Itens`, no sub-menu lateral esquerdo, clique na item de sub-menu `Esquema de tipos de itens`
+
   * Observe as configurações existentes
 
 ![Config-Jira-Software-Cloud-17.png](printscreen/Config-Jira-Software-Cloud-17.png)
 ![Config-Jira-Software-Cloud-18.png](printscreen/Config-Jira-Software-Cloud-18.png)
 
-6. Na página `Itens` :: `Esquema de Tipos de Itens`, no link `Editar` do _Esquema de Tipo de Item_ `RPA: Process Management Issue Type Scheme`
+#### 1.6.7. Na página `Itens` :: `Esquema de Tipos de Itens`, no link `Editar` do _Esquema de Tipo de Item_ `RPA: Process Management Issue Type Scheme`
+
   * Seu objetivo será deixar apenas o _Tipo de Item_ `RPA` associado ao _Esquema de Tipo de Item_ `RPA: Process Management Issue Type Scheme` e ao _Projeto_ `RPA`
   * Arraste e solte os itens entre as listas `Tipos de item para o esquema atual` e `Disponível Tipos de item`
   * Ao final clique no botão `Salvar`
