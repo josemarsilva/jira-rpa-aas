@@ -5,7 +5,7 @@ Using Jira (da Atlassian ) to implement RPA (Robot Process Automation) em um mod
 
 Este repositório contém os componentes do projeto **jira-rpa-aas**. A solução **jira-rpa-aas** usa e implementa os seguintes conceitos e ferramentas:
 * RPA - Robot Process Automation
-* Jira Software - Ferramenta de Workflow da Atlassian
+* Jira Software ou Jira Service Management - Ferramenta de Workflow da Atlassian
 * aaS - Entrega como serviço
 
 ### 1.1. Índice
@@ -63,7 +63,7 @@ O diagrama de Estados e Transições com **Contexto - Jira RPA aaS** do projeto,
 
 ### 2.5. Requisitos ###
 
-* Jira-Software - Componente de Software da Atlassian
+* Jira-Software ou Jira-Service-Management - Componente de Software da Atlassian
 * Jira-Software Scripts
 
 

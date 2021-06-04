@@ -142,8 +142,10 @@ PS: Conforme a evolução da ferramenta, o projeto template pode ser definido no
 #### 1.6.7. Na página `Itens` :: `Esquema de Tipos de Itens`, no link `Editar` do _Esquema de Tipo de Item_ `RPA: Process Management Issue Type Scheme`
 
   * Seu objetivo será deixar apenas o _Tipo de Item_ `RPA` associado ao _Esquema de Tipo de Item_ `RPA: Process Management Issue Type Scheme` e ao _Projeto_ `RPA`
-  * Arraste e solte os itens entre as listas `Tipos de item para o esquema atual` e `Disponível Tipos de item`
-  * Ao final clique no botão `Salvar`
+  * No passo (1), arraste e solte o item `RPA` da lista `Disponível Tipos de item` para a lista `Tipos de item para o esquema atual`
+  * No passo (2), arraste e solte os itens que existem na lista `Tipos de item para o esquema atual` para a lista `Disponível Tipos de item`
+  * No passo (3), defina o tipo de item padrão como sendo `RPA`
+  * No passo (4), finalmente clique no botão `Salvar`
 
 ![Config-Jira-Software-Cloud-19.png](printscreen/Config-Jira-Software-Cloud-19.png)
 ![Config-Jira-Software-Cloud-20.png](printscreen/Config-Jira-Software-Cloud-20.png)
@@ -153,23 +155,23 @@ PS: Conforme a evolução da ferramenta, o projeto template pode ser definido no
 
 ## 1.7. Configurar Fluxo de Trabalho do RPA
 
-1. No menu superior principal clique no ícone de engrenagem e em seguida no item de menu `Itens`
+#### 1.7.1. No menu superior principal clique no ícone de engrenagem e em seguida no item de menu `Itens`
 
 ![Config-Jira-Software-Cloud-12.png](printscreen/Config-Jira-Software-Cloud-12.png)
 
 ![Config-Jira-Software-Cloud-13.png](printscreen/Config-Jira-Software-Cloud-13.png)
 
-2. Na página `Itens` :: `Tipos de Itens`, no sub-menu lateral esquerdo, clique na item de sub-menu `Fluxo de Trabalho`
+#### 1.7.2. Na página `Itens` :: `Tipos de Itens`, no sub-menu lateral esquerdo, clique na item de sub-menu `Fluxo de Trabalho`
 
 ![Config-Jira-Software-Cloud-21.png](printscreen/Config-Jira-Software-Cloud-21.png)
 
-3. Na página `Itens` :: `Fluxo de Trabalho`, observe as configurações existentes: `RPA: Process Management Workflow`
+#### 1.7.3. Na página `Itens` :: `Fluxo de Trabalho`, observe as configurações existentes: `RPA: Process Management Workflow`
   * Clique no link da ação `Editar` na linha correspondente a configuração `RPA: Process Management Workflow`
   * Seu objetivo será editar o Fluxo de Trabalho `RPA: Process Management Workflow` e deixá-lo conforme as configurações abaixo
 
 ![StateDiagram%20-%20Context.png](StateDiagram%20-%20Context.png)
 
-4. Na página `Itens` :: `Fluxo de Trabalho`, clique no link `Editar` correspondente a configuração `RPA: Process Management Workflow` e crie os seguintes _Status_:
+#### 1.7.4. Na página `Itens` :: `Fluxo de Trabalho`, clique no link `Editar` correspondente a configuração `RPA: Process Management Workflow` e crie os seguintes _Status_:
 
 | Status      | Categoria          |
 | ----------- | ------------------ |
@@ -179,7 +181,7 @@ PS: Conforme a evolução da ferramenta, o projeto template pode ser definido no
 | `CANCELADO` | `Itens Concluídos` |
 | `FALHA`     | `Itens Pendentes`  |
 
-5. Na página `Itens` :: `Fluxo de Trabalho`, clique no link `Editar` correspondente a configuração `RPA: Process Management Workflow` e crie as seguintes _Transitions_:
+#### 1.7.5. Na página `Itens` :: `Fluxo de Trabalho`, clique no link `Editar` correspondente a configuração `RPA: Process Management Workflow` e crie as seguintes _Transitions_:
 
 | Transição   | Status DE   |Status PARA   | Obs                  |
 | ----------- | ----------- | ------------ | -------------------- |
@@ -191,7 +193,7 @@ PS: Conforme a evolução da ferramenta, o projeto template pode ser definido no
 | `Falhar`    | `SUBMETIDO` | `FALHA`      |                      |
 | `Editar`    | `FALHA`     | `EM EDIÇÃO`  |                      |
 
-6. Na página `Itens` :: `Fluxo de Trabalho`, ao final da edição clicar no link `Publicar Rascunho`:
+#### 1.7.6. Na página `Itens` :: `Fluxo de Trabalho`, ao final da edição clicar no link `Publicar Rascunho`:
 
 
 ---
