@@ -11,6 +11,7 @@ process-worker-failure-message;Sorry something went wrong please see our faq her
 tmp-file-issues;issues.tmp;Issues gotten Temporary File
 tmp-file-process-worker;process-worker.tmp;Process Worker Temporary Log File
 tmp-folder-issue-attachments;issue-attachments-tmp;Temporary issue attachment folder
+attachments-skip-list;;Skip theses files
 
 #url-protocol-hostname-port;http://localhost:8080;URL Base Jira Server
 #user;user-rpa-aas;Username used in authentication
