@@ -65,6 +65,8 @@ Guia de Configuração da ferramenta Jira on Cloud *na nuvem* para o projeto [Ji
 
 ## 1.4. Defina o template de seu projeto
 
+PS: Conforme a evolução da ferramenta, o projeto template pode ser definido no momento da criação do projeto.
+
 1. Selecione o template de `Negócio`
 
 2. Selecione a opção `Controle de Processo`
@@ -75,18 +77,18 @@ Guia de Configuração da ferramenta Jira on Cloud *na nuvem* para o projeto [Ji
 
 ## 1.5. Crie o seu projeto de RPA
 
-1. Preencha as informações do nome do projeto
+#### 1.5.1. Preencha as informações do nome do projeto
   * Nome: `RPA`
   * Chave: `RPA`
 
-2. Em seguida clique no botão `Criar`
+#### 1.5.2. Em seguida clique no botão `Criar`
 
 ![Config-Jira-Software-Cloud-09.png](printscreen/Config-Jira-Software-Cloud-09.png)
 
-3. Pronto! Seu projeto foi criado em seu ambiente do *Jira Cloud* 
+#### 1.5.3. Pronto! Seu projeto foi criado em seu ambiente do *Jira Cloud* 
   * Link de acesso [https://jira-rpa-aas.atlassian.net/](https://jira-rpa-aas.atlassian.net/)
 
-4. Você pode alterar a visão que tem dos itens:
+#### 1.5.4. Você pode alterar a visão que tem dos itens:
   * clique no botão de menu lateral esquerdo `Filas` para acessar a fila de chamados
   * clique no botão de menu superior `Painéis de controle` para acessar o painel de controle
 
