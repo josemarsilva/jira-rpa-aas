@@ -202,6 +202,24 @@ Atenção: Conforme a versão da ferramenta Jira, o projeto template pode ser de
 #### 1.7.6. Na página `Itens` :: `Fluxo de Trabalho`, ao final da edição clicar no link `Publicar Rascunho`:
 
 
+#### 1.7.7. Na página `Itens` :: `Tipos de Itens`, no sub-menu lateral esquerdo, clique na item de sub-menu `Equemas de Fluxo de Trabalho`
+
+* Clique no sub-menu lateral esquerdo  `Esquemas de Fluxo de Trabalho`
+
+![Config-Jira-Software-Cloud-31.png](printscreen/Config-Jira-Software-Cloud-31.png)
+
+* Localize o Esquemas de Fluxo de Trabalho associado ao projeto `RPA` (na coluna projeto) e clique no botão `Editar` correspondente
+
+![Config-Jira-Software-Cloud-32.png](printscreen/Config-Jira-Software-Cloud-32.png)
+
+* Seu objetivo será *atribuir* o `Tipo de item` = `RPA` ao `Projeto` = `RPA` e workflow `RPA` configurado neste item
+  * Provavelmente o cenário que você deverá encontrar é um esquema previamente configurado com todos os Tipos de Itens exceto o `RPA` que você deverá completar a configuração associando-o
+
+![Config-Jira-Software-Cloud-33.png](printscreen/Config-Jira-Software-Cloud-33.png)
+
+![Config-Jira-Software-Cloud-34.png](printscreen/Config-Jira-Software-Cloud-34.png)
+
+
 ---
 
 ## 1.8. Configurar Grupo de Usuários RPA
@@ -270,6 +288,7 @@ Atenção: Conforme a versão da ferramenta Jira, o projeto template pode ser de
 ![Config-Jira-Software-Cloud-29.png](printscreen/Config-Jira-Software-Cloud-29.png)
 
 	* Em seguida clique no link `Publicar Rascunho`
+	* Não é preciso salvar uma cópia backup
 
 ![Config-Jira-Software-Cloud-30.png](printscreen/Config-Jira-Software-Cloud-30.png)
 
