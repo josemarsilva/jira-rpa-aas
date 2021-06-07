@@ -198,7 +198,7 @@ Atenção: Conforme a versão da ferramenta Jira pode haver pequenas variações
 
 | Transição   | Status DE   |Status PARA   | Descrição            | Obs                  |
 | ----------- | ----------- | ------------ | -------------------- | -------------------- |
-|             | _início_    | `EM EDIÇÃO`  | Criar                |                      |
+| _Create_    | _início_    | `EM EDIÇÃO`  | Criar                |                      |
 | `Submeter`  | `EM EDIÇÃO` | `SUBMETIDO`  | Submeter             |                      |
 | `Concluir`  | `SUBMETIDO` | `CONCLUÍDO`  | Concluir             |                      |
 | `Cancelar`  | _qualquer_  | `CANCELADO`  | Cancelar             |                      |
@@ -254,6 +254,8 @@ Atenção: Conforme a versão da ferramenta Jira pode haver pequenas variações
 #### 1.8.5. Na caixa de diálogo `Adicionar Membros ao Grupo` informe os campos:
   * Informe os usuários que serão *robôs de atendimento* do serviço
   * Clique no botão `Adicionar`
+
+![Config-Jira-Software-Cloud-26.png](printscreen/Config-Jira-Software-Cloud-26.png)
 
 
 ---
