@@ -67,13 +67,18 @@ Atenção: No tópico [1.8](#18-configurar-grupo-de-usuários-rpa) você poderá
 
 ## 1.4. Defina o template de seu projeto
 
-Atenção: Conforme a versão da ferramenta Jira, o projeto template pode ser definido no momento da criação do projeto e não neste momento.
+Atenção: Conforme a versão da ferramenta Jira pode haver pequenas variações nestes _PrintScreens_ capturados para a escolha do template do projeto.
 
-#### 1.4.1. Selecione o template de `Negócio`
+#### 1.4.1. Usar o template mais adequado
 
-#### 1.4.2. Selecione a opção `Controle de Processo`
+O template de projeto do Jira é um facilitador da ferramenta para configuração e adaptação da experiência do usuário à ferramenta. É bom que se tenha em mente que a mesma aplicação base do *Jira* é adaptada e configurada para atender diversas variações. O template a ser usado é informado no momento da criação do projeto, lembre-se que no roteiro de _Free Try_ da ferramenta a criação de projeto poderá estar embutida.
+
+* Caso esteja disponível escolha a seguinte opção de template: `Gerenciamento de trabalho` - `Controle de Processo`
 
 ![Config-Jira-Software-Cloud-08.png](printscreen/Config-Jira-Software-Cloud-08.png)
+
+![Config-Jira-Software-Cloud-08a.png](printscreen/Config-Jira-Software-Cloud-08a.png)
+
 
 ---
 
@@ -91,10 +96,12 @@ Atenção: Conforme a versão da ferramenta Jira, o projeto template pode ser de
   * Link de acesso [https://jira-rpa-aas.atlassian.net/](https://jira-rpa-aas.atlassian.net/)
 
 #### 1.5.4. Você pode alterar a visão que tem dos itens:
-  * clique no botão de menu lateral esquerdo `Filas` para acessar a fila de chamados
-  * clique no botão de menu superior `Painéis de controle` para acessar o painel de controle. Mais para frente vamos configurar uma a visão deste painel para ficar parecida com um Dashboard de Kanban.
+
+Atenção: Conforme a versão da ferramenta Jira pode haver pequenas variações nestes _PrintScreens_ capturados da página principal do projeto
 
 ![Config-Jira-Software-Cloud-10.png](printscreen/Config-Jira-Software-Cloud-10.png)
+
+![Config-Jira-Software-Cloud-10b.png](printscreen/Config-Jira-Software-Cloud-10b.png)
 
 ![Config-Jira-Software-Cloud-11.png](printscreen/Config-Jira-Software-Cloud-11.png)
 
