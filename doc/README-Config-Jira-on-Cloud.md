@@ -198,8 +198,7 @@ Atenção: Conforme a versão da ferramenta Jira pode haver pequenas variações
 
 | Transição   | Status DE   |Status PARA   | Descrição            | Obs                  |
 | ----------- | ----------- | ------------ | -------------------- | -------------------- |
-|             | _início_    | `Open`       | Criar                |                      |
-| `Submeter`  | `Open`      | `SUBMETIDO`  | Submeter             |                      |
+|             | _início_    | `EM EDIÇÃO`  | Criar                |                      |
 | `Submeter`  | `EM EDIÇÃO` | `SUBMETIDO`  | Submeter             |                      |
 | `Concluir`  | `SUBMETIDO` | `CONCLUÍDO`  | Concluir             |                      |
 | `Cancelar`  | _qualquer_  | `CANCELADO`  | Cancelar             |                      |
