@@ -1,7 +1,7 @@
 ﻿key;value;remark
-url-protocol-hostname-port;https://jira-rpa-aas.atlassian.net;URL Base Jira Cloud
+url-protocol-hostname-port;https://jira-rpa-aas-lab-00.atlassian.net;URL Base Jira Cloud
 user;josemarsilva@yahoo.com.br;Username used in authentication
-password;user-rpa-aas;Password used in authentication (use Token for Jira Cloud)
+password;********************************;Password used in authentication (use Token for Jira Cloud)
 jira-project-key;RPA;Jira Project Key used in almost all scripts
 jira-issuetype-key;RPA;Jira IssueType Key used in almost all scripts
 jira-issues-count-per-get;5;Jira API parameter - issues count per get
