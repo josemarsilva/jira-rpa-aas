@@ -276,28 +276,39 @@ Atenção: Conforme a versão da ferramenta Jira pode haver pequenas variações
 
 ![Config-Jira-Software-Cloud-22.png](printscreen/Config-Jira-Software-Cloud-22.png)
 
-  * Seu objetivo será editar as transições em ( `Concluir` e `Falhar` ) e deixá-las restrita ao grupo de usuários `jira-software-robot-rpa-aas`
-  * e editar todas as demais transições e deixá-las restrita ao grupo de usuários `jira-servicemanagement-users`
-  * Clique na opção `Mostrar rótulos de transição` para facilitar a visualização
+  * Seu objetivo É:
+    * editar as transições em ( `Concluir` e `Falhar` ) e deixá-las restrita ao grupo de usuários `jira-software-robot-rpa-aas`
+    * editar todas as demais transições ( `Create`, `Submeter`, `Editar`, `Cancelar` ) e deixá-las restrita ao grupo de usuários `jira-servicemanagement-users`
+
+
+| Transição   | Usuário deve estar no grupo ...
+| ----------- | --------------------------------------------------- |
+| _Create_    | 
+| `Submeter`  | 
+| `Concluir`  | jira-software-robot-rpa-aas
+| `Cancelar`  | 
+| `Falhar`    | jira-software-robot-rpa-aas
+| `Editar`    | 
+
 
 ![StateDiagram%20-%20Context.png](StateDiagram%20-%20Context.png)
 
-  * Para cada uma das transições em ( `Concluir` e `Falhar` )
-    * Clique na transição, isto faz abrir uma caixa de diálogo na lateral direita
-	* Clique no link `Condições` e em seguida no botão `Adicionar Condição`
+* Para cada uma das transições em ( `Create`, `Submeter`, `Concluir`, `Falhar`, `Editar`, `Cancelar`  ):
+  * Clique na transição, isto faz abrir uma caixa de diálogo na lateral direita
+  * Clique no link `Condições` e em seguida no botão `Adicionar Condição` e selecione a opção do grupo de usuário conforme tabela de configuração
 
 ![Config-Jira-Software-Cloud-27.png](printscreen/Config-Jira-Software-Cloud-27.png)
 
-	* Selecione a opção `O usuário está no grupo` e em seguida no botão `Adicionar Condição`
+* Selecione a opção `O usuário está no grupo` e em seguida no botão `Adicionar Condição`
 
 ![Config-Jira-Software-Cloud-28.png](printscreen/Config-Jira-Software-Cloud-28.png)
 
-	* Na caixa de diálogo `Administração` :: `Add Parameters To Condition` selecione a opção `jira-software-robot-rpa-aas` e clique no botão `Adicionar`
+* Na caixa de diálogo `Administração` :: `Add Parameters To Condition` selecione a opção `jira-software-robot-rpa-aas` e clique no botão `Adicionar`
 
 ![Config-Jira-Software-Cloud-29.png](printscreen/Config-Jira-Software-Cloud-29.png)
 
-	* Em seguida clique no link `Publicar Rascunho`
-	* Não é preciso salvar uma cópia backup
+
+* A seguir clique no link `Publicar Rascunho`, mas não é preciso salvar uma cópia backup
 
 ![Config-Jira-Software-Cloud-30.png](printscreen/Config-Jira-Software-Cloud-30.png)
 
