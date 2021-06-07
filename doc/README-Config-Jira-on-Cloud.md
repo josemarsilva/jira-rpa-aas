@@ -333,15 +333,15 @@ Atenção: Conforme a versão da ferramenta Jira pode haver pequenas variações
 
 #### 1.11.1. Entrar na administração do Jira para configurar acesso através de Token
 
-  * No menu superior principal clique no ícone de 9 pontos para acessar a lista de opções de menu do produto
-  * Na lista de opções de menu do produto clique no item de sub-menu `Administration`
+* No menu superior principal clique no ícone de engrenagem e em seguida no item de menu `Gerenciamento de usuários`
 
 ![Config-Jira-Software-Cloud-40.png](printscreen/Config-Jira-Software-Cloud-40.png)
 
-  * No menu superior principal do produto `Atlassian Administrator` clique a opção de menu `Configurações`
-  * Na lista de opções de menu da Administração clique no item de sub-menu `Atlassian Administrator >> chaves de API`
+* No menu superior principal da aplicação `Atlassian Administrador` clique no item de menu `Configurações`
 
 ![Config-Jira-Software-Cloud-41.png](printscreen/Config-Jira-Software-Cloud-41.png)
+
+* No menu lateral esquerdo da opção `Configurações` do `Atlassian Administrador` clique no item de sub-menu `chaves de API`
 
 ![Config-Jira-Software-Cloud-42.png](printscreen/Config-Jira-Software-Cloud-42.png)
 
