@@ -64,7 +64,7 @@ ECHO.
 ECHO Step-3-1-3: Sucesso no processamento
 ECHO.
 ECHO ^<status^>SUCESSO^</status^>
-ECHO ^<status-message^>SUCESSO no processado com sucesso. ^</status-message^>
+ECHO ^<status-message^>SUCESSO no processamento automatizado pelo RPA. ^</status-message^>
 ECHO ^<package-zip^>.\issue-attachments-tmp\%1\%INPUT_ATTACH_FILENAME%.log^</package-zip^>
 
 GOTO PROCESS_DONE
@@ -75,7 +75,7 @@ ECHO.
 ECHO Step-3-2-1: Falha no processamento
 ECHO.
 ECHO ^<status^>FALHA^</status^>
-ECHO ^<status-message^>Falha no processado com sucesso. %STATUS_MESSAGE_COMPL% ^</status-message^>
+ECHO ^<status-message^>FALHA no processamento automatizado pelo RPA. %STATUS_MESSAGE_COMPL% ^</status-message^>
 ECHO ^<package-zip^>.\issue-attachments-tmp\%1\%INPUT_ATTACH_FILENAME%.log^</package-zip^>
 
 GOTO PROCESS_DONE
