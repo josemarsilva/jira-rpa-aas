@@ -1,13 +1,16 @@
 @ECHO OFF
 REM #############################################################################
-REM filename   : * process-worker.bat
-REM description: 
+REM filename   :
+REM              process-worker.bat
+REM description:
+REM              Batch file that implements the RPA (Robot Process Automation)
 REM parameters :
-REM              * %1: IssueId
-REM              * %2: IssueKey
-REM source-code: * https://github.com/josemarsilva/jira-rpa-aas
+REM              - %1: IssueId
+REM              - %2: IssueKey
+REM source-code:
+REM              https://github.com/josemarsilva/jira-rpa-aas
 REM references :
-REM              * https://stackoverflow.com/questions/13724940/how-to-run-a-powershell-script-from-the-command-line-and-pass-a-directory-as-a-p
+REM              https://stackoverflow.com/questions/13724940/how-to-run-a-powershell-script-from-the-command-line-and-pass-a-directory-as-a-p
 REM #############################################################################
 REM
 
@@ -25,8 +28,8 @@ ECHO   - Data             : %DATE%
 ECHO   - Hora             : %TIME%
 ECHO   + Current directory:
 CD
-ECHO   + List directory   :
-dir /b /s
+REM ECHO   + List directory   :
+REM dir /b /s
 
 
 ECHO.
