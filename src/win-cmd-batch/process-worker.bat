@@ -37,20 +37,21 @@ ECHO Step-2: Check attachments
 ECHO.
 
 SET INPUT_ATTACH_FILENAME=remote-windows-command-script.rpa
-SET STATUS_MESSAGE_COMPL=Arquivo anexo '%INPUT_ATTACH_FILENAME%' nao foi localizado.
+SET STATUS_MESSAGE_COMPL= 
 IF NOT EXIST ".\issue-attachments-tmp\%1\%INPUT_ATTACH_FILENAME%" (
+	SET STATUS_MESSAGE_COMPL=Arquivo anexo '%INPUT_ATTACH_FILENAME%' nao foi localizado.
 	GOTO PROCESS_FAIL
 )
 
 
 ECHO.
-ECHO Step-3: Type attachment file
+ECHO Step-3-1-1: Type attachment file
 ECHO.
 TYPE .\issue-attachments-tmp\%1\%INPUT_ATTACH_FILENAME%
 ECHO.
 
 ECHO.
-ECHO Step-4: Process attachment file
+ECHO Step-3-1-2: Process attachment file
 ECHO.
 COPY /Y .\issue-attachments-tmp\%1\%INPUT_ATTACH_FILENAME% .\issue-attachments-tmp\%1\%INPUT_ATTACH_FILENAME%.bat
 CALL .\issue-attachments-tmp\%1\%INPUT_ATTACH_FILENAME%.bat > .\issue-attachments-tmp\%1\%INPUT_ATTACH_FILENAME%.log
@@ -60,7 +61,7 @@ ECHO.
 :PROCESS_SUCCESS
 
 ECHO.
-ECHO Step-5.1: Sucesso no processamento
+ECHO Step-3-1-3: Sucesso no processamento
 ECHO.
 ECHO ^<status^>SUCESSO^</status^>
 ECHO ^<status-message^>SUCESSO no processado com sucesso. ^</status-message^>
@@ -71,7 +72,7 @@ GOTO PROCESS_DONE
 :PROCESS_FAIL
 
 ECHO.
-ECHO Step-5.2: Falha no processamento
+ECHO Step-3-2-1: Falha no processamento
 ECHO.
 ECHO ^<status^>FALHA^</status^>
 ECHO ^<status-message^>Falha no processado com sucesso. %STATUS_MESSAGE_COMPL% ^</status-message^>
