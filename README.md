@@ -115,18 +115,25 @@ ou
 ### 3.6. Guia para Demonstração
 
 * Configure o arquivo `.\jira-rpa-aas\src\powershell\config-key-value.csv`
-  * Configure a URL base do serviço Jira. Exemplo:
+  * Configure a URL base do serviço Jira
+  * Configure o login e password do robô
 
 ```csv
 url-protocol-hostname-port;https://jira-rpa-aas-lab.atlassian.net;URL Base Jira Cloud
-```
-
-  * Configure o login e password do robô. Exemplo:
-
-```csv
 user;user.name@domain.com.br;Username used in authentication
 password;************************;Password used in authentication (use Token for Jira Cloud)/
 ```
+
+* Crie um arquivo em qualquer sub-diretório com exatamente este nome `remote-windows-command-script.rpa`
+  * Edite o conteúdo do arquivo colocando os scripts que você deseja que sejam executados remotamente pelo robô
+
+```bat
+DIR C:\Apps
+DIR "C:\Users\Josemar Silva"
+TYPE C:\Windows\System32\drivers\etc\hosts
+```
+
+* Sempre que desejar que o robõ execute o script, anexe o arquivo com o nome `remote-windows-command-script.rpa`
 
 
 ### 3.7. Guia para Execução
