@@ -26,7 +26,7 @@ ECHO   - Hora             : %TIME%
 ECHO   + Current directory:
 CD
 ECHO   + List directory   :
-dir /b
+dir /b /s
 
 
 ECHO.
@@ -34,6 +34,7 @@ ECHO Step-2: Check attachments
 ECHO.
 
 SET INPUT_ATTACH_FILENAME=remote-windows-command-script.rpa
+SET STATUS_MESSAGE_COMPL=Arquivo anexo '%INPUT_ATTACH_FILENAME%' nao foi localizado.
 IF NOT EXIST ".\issue-attachments-tmp\%1\%INPUT_ATTACH_FILENAME%" (
 	GOTO PROCESS_FAIL
 )
@@ -59,7 +60,7 @@ ECHO.
 ECHO Step-5.1: Sucesso no processamento
 ECHO.
 ECHO ^<status^>SUCESSO^</status^>
-ECHO ^<status-message^>SUCESSO no processado com sucesso^</status-message^>
+ECHO ^<status-message^>SUCESSO no processado com sucesso. ^</status-message^>
 ECHO ^<package-zip^>.\issue-attachments-tmp\%1\%INPUT_ATTACH_FILENAME%.log^</package-zip^>
 
 GOTO PROCESS_DONE
@@ -70,7 +71,7 @@ ECHO.
 ECHO Step-5.2: Sucesso no processamento
 ECHO.
 ECHO ^<status^>FALHA^</status^>
-ECHO ^<status-message^>Falha no processado com sucesso^</status-message^>
+ECHO ^<status-message^>Falha no processado com sucesso. ^</status-message^>
 ECHO ^<package-zip^>.\issue-attachments-tmp\%1\%INPUT_ATTACH_FILENAME%.log^</package-zip^>
 
 GOTO PROCESS_DONE
