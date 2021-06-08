@@ -284,11 +284,11 @@ Atenção: Conforme a versão da ferramenta Jira pode haver pequenas variações
 | Transição   | Usuário deve estar no grupo ...
 | ----------- | --------------------------------------------------- |
 | _Create_    | 
-| `Submeter`  | 
+| `Submeter`  | jira-software-users
 | `Concluir`  | jira-software-robot-rpa-aas
-| `Cancelar`  | 
+| `Cancelar`  | jira-software-users
 | `Falhar`    | jira-software-robot-rpa-aas
-| `Editar`    | 
+| `Editar`    | jira-software-users
 
 
 ![StateDiagram%20-%20Context.png](StateDiagram%20-%20Context.png)
