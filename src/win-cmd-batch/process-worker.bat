@@ -68,10 +68,10 @@ GOTO PROCESS_DONE
 :PROCESS_FAIL
 
 ECHO.
-ECHO Step-5.2: Sucesso no processamento
+ECHO Step-5.2: Falha no processamento
 ECHO.
 ECHO ^<status^>FALHA^</status^>
-ECHO ^<status-message^>Falha no processado com sucesso. ^</status-message^>
+ECHO ^<status-message^>Falha no processado com sucesso. %STATUS_MESSAGE_COMPL% ^</status-message^>
 ECHO ^<package-zip^>.\issue-attachments-tmp\%1\%INPUT_ATTACH_FILENAME%.log^</package-zip^>
 
 GOTO PROCESS_DONE
