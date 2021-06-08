@@ -114,7 +114,20 @@ ou
 
 ### 3.6. Guia para Demonstração
 
-* n/a
+* Configure o arquivo `.\jira-rpa-aas\src\powershell\config-key-value.csv`
+  * Configure a URL base do serviço Jira. Exemplo:
+
+```csv
+url-protocol-hostname-port;https://jira-rpa-aas-lab.atlassian.net;URL Base Jira Cloud
+```
+
+  * Configure o login e password do robô. Exemplo:
+
+```csv
+user;user.name@domain.com.br;Username used in authentication
+password;************************;Password used in authentication (use Token for Jira Cloud)/
+```
+
 
 ### 3.7. Guia para Execução
 
