@@ -133,7 +133,17 @@ DIR "C:\Users\Josemar Silva"
 TYPE C:\Windows\System32\drivers\etc\hosts
 ```
 
-* Sempre que desejar que o robõ execute o script, anexe o arquivo com o nome `remote-windows-command-script.rpa`
+* Sempre que desejar que o robõ execute o script, anexe o arquivo com o nome `run-rpa-process-worker.bat`
+
+```bat
+C:\GitHome\jira-rpa-aas\src\win-cmd-batch> run-rpa-process-worker.bat
+Starting 'rpa-aas-get.ps1'
+Finishing 'rpa-aas-get.ps1'
+Starting 'rpa-aas-process.ps1' ...
+Finishing 'rpa-aas-process.ps1'.
+```
+
+* Lembre-se que o robô `run-rpa-process-worker.bat` pode ser [agendado](#guia-para-configuração-do-agendador-de-tarefa-do-windows-executar-o-process-worker)  para executar automaticamente 
 
 
 ### 3.7. Guia para Execução
